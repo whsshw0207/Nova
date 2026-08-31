@@ -20,6 +20,26 @@
       <section id="screen-intro" class="screen" data-screen="intro">
         <h1>Intro</h1>
         <p>게임 시작 화면입니다.</p>
+
+        <form id="character-form" class="character-form">
+          <div class="form-row">
+            <label for="character-name">이름</label>
+            <input type="text" id="character-name" name="character-name" placeholder="이름을 입력하세요" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <span class="form-label">성별</span>
+            <div id="gender-select" class="gender-select">
+              <button type="button" class="gender-btn" data-gender="male">남</button>
+              <button type="button" class="gender-btn" data-gender="female">여</button>
+              <button type="button" class="gender-btn" data-gender="other">기타</button>
+            </div>
+          </div>
+
+          <button type="submit" id="character-confirm" class="confirm-btn">확인</button>
+        </form>
+
+        <p id="character-result" class="character-result" hidden></p>
       </section>
 
       <section id="screen-map" class="screen" data-screen="map" hidden>

@@ -26,3 +26,44 @@ Router.register("boss", {
 
 Router.setDefault("intro");
 Router.init();
+
+// 캐릭터 생성 UI (intro 화면)
+(() => {
+  const genderLabels = { male: "남", female: "여", other: "기타" };
+
+  const form = document.getElementById("character-form");
+  const nameInput = document.getElementById("character-name");
+  const genderButtons = document.querySelectorAll(".gender-btn");
+  const resultEl = document.getElementById("character-result");
+
+  let selectedGender = null;
+
+  genderButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      genderButtons.forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      selectedGender = btn.dataset.gender;
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+
+    if (!name) {
+      resultEl.textContent = "이름을 입력해주세요.";
+      resultEl.hidden = false;
+      return;
+    }
+
+    if (!selectedGender) {
+      resultEl.textContent = "성별을 선택해주세요.";
+      resultEl.hidden = false;
+      return;
+    }
+
+    resultEl.textContent = `캐릭터 생성 완료: ${name} (${genderLabels[selectedGender]})`;
+    resultEl.hidden = false;
+  });
+})();

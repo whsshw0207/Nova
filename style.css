@@ -60,3 +60,87 @@ body {
     transform: translateY(0);
   }
 }
+
+.character-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row label,
+.form-label {
+  font-size: 14px;
+  color: #b8bcc8;
+}
+
+#character-name {
+  padding: 10px 12px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 6px;
+  color: #f0f0f0;
+  font-size: 14px;
+}
+
+#character-name:focus {
+  outline: none;
+  border-color: #4f6df5;
+}
+
+.gender-select {
+  display: flex;
+  gap: 8px;
+}
+
+.gender-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: #2a2e3a;
+  color: #f0f0f0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.gender-btn:hover {
+  background: #3a3f4f;
+}
+
+.gender-btn.selected {
+  background: #4f6df5;
+  border-color: #7d94ff;
+}
+
+.confirm-btn {
+  padding: 10px 0;
+  background: #4f6df5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.confirm-btn:hover {
+  background: #6280ff;
+}
+
+.character-result {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 6px;
+  color: #9be79b;
+  max-width: 360px;
+}
