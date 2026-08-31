@@ -61,11 +61,30 @@ body {
   }
 }
 
+#screen-intro {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 16px;
+}
+
+@media (max-width: 480px) {
+  #screen-intro {
+    max-width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+}
+
 .character-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 360px;
+  max-width: 100%;
   margin-top: 20px;
 }
 
@@ -142,5 +161,5 @@ body {
   border: 1px solid #2a2e3a;
   border-radius: 6px;
   color: #9be79b;
-  max-width: 360px;
+  max-width: 100%;
 }
