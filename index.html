@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indie Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <nav id="nav-bar">
+      <button data-nav="intro">Intro</button>
+      <button data-nav="map">Map</button>
+      <button data-nav="case">Case</button>
+      <button data-nav="simulator">Simulator</button>
+      <button data-nav="boss">Boss</button>
+    </nav>
+
+    <main id="screen-root">
+      <section id="screen-intro" class="screen" data-screen="intro">
+        <h1>Intro</h1>
+        <p>게임 시작 화면입니다.</p>
+      </section>
+
+      <section id="screen-map" class="screen" data-screen="map" hidden>
+        <h1>Map</h1>
+        <p>맵 화면입니다.</p>
+      </section>
+
+      <section id="screen-case" class="screen" data-screen="case" hidden>
+        <h1>Case</h1>
+        <p>사건 화면입니다.</p>
+      </section>
+
+      <section id="screen-simulator" class="screen" data-screen="simulator" hidden>
+        <h1>Simulator</h1>
+        <p>시뮬레이터 화면입니다.</p>
+      </section>
+
+      <section id="screen-boss" class="screen" data-screen="boss" hidden>
+        <h1>Boss</h1>
+        <p>보스전 화면입니다.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="router.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
