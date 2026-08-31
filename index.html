@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indie Game</title>
+  <title>Java Study</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,12 +14,13 @@
       <button data-nav="case">Case</button>
       <button data-nav="simulator">Simulator</button>
       <button data-nav="boss">Boss</button>
+      <button data-nav="cutscene">Cutscene</button>
     </nav>
 
     <main id="screen-root">
       <section id="screen-intro" class="screen" data-screen="intro">
         <h1>Intro</h1>
-        <p>게임 시작 화면입니다.</p>
+        <p>시작 화면입니다.</p>
 
         <form id="character-form" class="character-form">
           <div class="form-row">
@@ -45,11 +46,29 @@
       <section id="screen-map" class="screen" data-screen="map" hidden>
         <h1>Map</h1>
         <p>맵 화면입니다.</p>
+
+        <div id="case-grid" class="case-grid">
+          <button type="button" class="case-card" data-case="01">케이스 01</button>
+          <button type="button" class="case-card" data-case="02">케이스 02</button>
+          <button type="button" class="case-card" data-case="03">케이스 03</button>
+          <button type="button" class="case-card" data-case="04">케이스 04</button>
+          <button type="button" class="case-card" data-case="05">케이스 05</button>
+        </div>
       </section>
 
       <section id="screen-case" class="screen" data-screen="case" hidden>
         <h1>Case</h1>
         <p>사건 화면입니다.</p>
+
+        <div class="briefing">
+          <div class="briefing-character">NOVA</div>
+          <div class="briefing-panel">
+            <div class="briefing-dialogue">
+              <p id="briefing-line"></p>
+            </div>
+            <button type="button" id="briefing-next" class="briefing-next-btn">다음</button>
+          </div>
+        </div>
       </section>
 
       <section id="screen-simulator" class="screen" data-screen="simulator" hidden>
@@ -60,6 +79,15 @@
       <section id="screen-boss" class="screen" data-screen="boss" hidden>
         <h1>Boss</h1>
         <p>보스전 화면입니다.</p>
+      </section>
+
+      <section id="screen-cutscene" class="screen" data-screen="cutscene" hidden>
+        <div id="cutscene-stage" class="cutscene-stage">
+          <div class="cutscene-character">NOVA</div>
+          <div class="cutscene-dialogue">
+            <p id="cutscene-line"></p>
+          </div>
+        </div>
       </section>
     </main>
   </div>

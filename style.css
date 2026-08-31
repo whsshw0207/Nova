@@ -154,6 +154,144 @@ body {
   background: #6280ff;
 }
 
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  max-width: 720px;
+}
+
+.case-card {
+  padding: 24px 12px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 10px;
+  color: #f0f0f0;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.case-card:hover {
+  background: #2a2e3a;
+  border-color: #4f6df5;
+}
+
+.briefing {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 20px;
+  min-height: 300px;
+}
+
+.briefing-character {
+  width: 200px;
+  height: 300px;
+  background: #55585f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d0d2d8;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.briefing-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  max-width: 480px;
+  margin-left: auto;
+}
+
+.briefing-dialogue {
+  width: 100%;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 10px;
+  padding: 20px 24px;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.briefing-dialogue p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+.briefing-next-btn {
+  padding: 10px 24px;
+  background: #4f6df5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.briefing-next-btn:hover {
+  background: #6280ff;
+}
+
+.cutscene-stage {
+  position: relative;
+  min-height: 420px;
+  background: #05060a;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  user-select: none;
+}
+
+.cutscene-character {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 200px;
+  height: 300px;
+  background: #55585f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d0d2d8;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.cutscene-dialogue {
+  background: rgba(0, 0, 0, 0.55);
+  border-top: 1px solid #2a2e3a;
+  padding: 20px 24px;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.cutscene-dialogue p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
 .character-result {
   margin-top: 16px;
   padding: 10px 14px;

@@ -33,15 +33,19 @@ const Router = (() => {
     if (currentScreen === name) return;
 
     if (currentScreen && routes.has(currentScreen)) {
-      const el = document.querySelector(`[data-screen="${currentScreen}"]`);
-      if (el) el.hidden = true;
       routes.get(currentScreen).onExit?.();
     }
 
     currentScreen = name;
 
+    // 추적 변수(currentScreen)가 실제 DOM 상태와 어긋나 있을 수 있으므로
+    // (예: 초기 로드시 해시가 기본 화면이 아닌 경우) 매번 전체를 먼저 숨긴다.
+    document.querySelectorAll("[data-screen]").forEach((el) => {
+      el.style.display = "none";
+    });
+
     const nextEl = document.querySelector(`[data-screen="${name}"]`);
-    if (nextEl) nextEl.hidden = false;
+    if (nextEl) nextEl.style.display = "block";
     routes.get(name)?.onEnter?.();
 
     document.querySelectorAll("[data-nav]").forEach((btn) => {
