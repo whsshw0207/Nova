@@ -45,7 +45,7 @@ const Router = (() => {
     });
 
     const nextEl = document.querySelector(`[data-screen="${name}"]`);
-    if (nextEl) nextEl.style.display = "block";
+    if (nextEl) nextEl.style.removeProperty("display");
     routes.get(name)?.onEnter?.();
 
     document.querySelectorAll("[data-nav]").forEach((btn) => {

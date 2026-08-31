@@ -38,9 +38,9 @@ const CutsceneScreen = (() => {
   };
 })();
 
-// 브리핑 화면 로직 (case)
-const BriefingScreen = (() => {
-  const lines = [
+// 사건 화면 진행 제어 (브리핑 대사 + 문제 4종을 한 화면에 순서대로 표시)
+const CaseScreen = (() => {
+  const dialogueLines = [
     "브리핑을 시작하겠다.",
     "이번 사건은 실종자 관련 건이다.",
     "목격자 진술에 따르면 마지막 위치는 항구 근처였다.",
@@ -48,55 +48,121 @@ const BriefingScreen = (() => {
     "질문 있나?",
   ];
 
-  const lineEl = document.getElementById("briefing-line");
-  const nextBtn = document.getElementById("briefing-next");
-  const interactionEl = document.getElementById("case-interaction");
-  const fillBlankEl = document.getElementById("fill-blank-interaction");
-  const typingEl = document.getElementById("typing-interaction");
-  const predictionEl = document.getElementById("prediction-interaction");
+  const quizOrder = ["order", "blank", "typing", "prediction"];
 
-  let index = 0;
+  const dialogueBubble = document.getElementById("briefing-line");
+  const bubbles = {
+    order: document.getElementById("order-question"),
+    blank: document.getElementById("blank-question"),
+    typing: document.getElementById("typing-question"),
+    prediction: document.getElementById("prediction-question"),
+  };
 
-  function render() {
-    lineEl.textContent = lines[index];
+  const phases = {
+    order: document.getElementById("phase-order"),
+    blank: document.getElementById("phase-blank"),
+    typing: document.getElementById("phase-typing"),
+    prediction: document.getElementById("phase-prediction"),
+  };
+
+  const explanationEl = document.getElementById("case-explanation");
+  const explanationAnswerEl = document.getElementById("case-explanation-answer");
+  const explanationDescEl = document.getElementById("case-explanation-desc");
+  const nextBtn = document.getElementById("case-next-btn");
+
+  let dialogueIndex = 0;
+  let quizIndex = -1;
+
+  function hideAllBubbles() {
+    dialogueBubble.hidden = true;
+    Object.values(bubbles).forEach((el) => {
+      el.hidden = true;
+    });
+  }
+
+  function hideAllPhases() {
+    Object.values(phases).forEach((el) => {
+      el.hidden = true;
+    });
+  }
+
+  function showDialogueLine() {
+    hideAllBubbles();
+    hideAllPhases();
+    dialogueBubble.hidden = false;
+    dialogueBubble.textContent = dialogueLines[dialogueIndex];
+    explanationEl.hidden = true;
+    nextBtn.hidden = false;
+  }
+
+  function showQuizPhase(name) {
+    hideAllBubbles();
+    hideAllPhases();
+    bubbles[name].hidden = false;
+    phases[name].hidden = false;
+    explanationEl.hidden = true;
+    nextBtn.hidden = true;
+  }
+
+  function showExplanation(answerText, descText, isCorrect = true) {
+    explanationAnswerEl.textContent = answerText || "";
+    explanationAnswerEl.hidden = !answerText;
+    explanationAnswerEl.classList.toggle("incorrect", isCorrect === false);
+    explanationDescEl.textContent = descText || "";
+    explanationEl.hidden = false;
+    nextBtn.hidden = false;
   }
 
   function advance() {
-    if (index >= lines.length - 1) {
-      console.log("브리핑 종료");
-      nextBtn.hidden = true;
-      interactionEl.hidden = false;
-      fillBlankEl.hidden = false;
-      typingEl.hidden = false;
-      predictionEl.hidden = false;
+    if (quizIndex === -1) {
+      if (dialogueIndex >= dialogueLines.length - 1) {
+        console.log("브리핑 종료");
+        quizIndex = 0;
+        showQuizPhase(quizOrder[quizIndex]);
+      } else {
+        dialogueIndex += 1;
+        showDialogueLine();
+      }
       return;
     }
-    index += 1;
-    render();
+
+    if (quizIndex >= quizOrder.length - 1) {
+      console.log("케이스 완료");
+      hideAllPhases();
+      dialogueBubble.hidden = false;
+      Object.values(bubbles).forEach((el) => {
+        el.hidden = true;
+      });
+      dialogueBubble.textContent = "수고했다. 이상으로 브리핑을 마친다.";
+      explanationEl.hidden = true;
+      nextBtn.hidden = true;
+      return;
+    }
+
+    quizIndex += 1;
+    showQuizPhase(quizOrder[quizIndex]);
   }
 
   nextBtn.addEventListener("click", advance);
 
   return {
+    showExplanation,
     onEnter: () => {
       console.log("[case] entered");
-      index = 0;
-      nextBtn.hidden = false;
-      interactionEl.hidden = true;
-      fillBlankEl.hidden = true;
-      typingEl.hidden = true;
-      predictionEl.hidden = true;
+      dialogueIndex = 0;
+      quizIndex = -1;
+      OrderInteraction.reset();
       FillBlankInteraction.reset();
       TypingInteraction.reset();
       PredictionInteraction.reset();
-      render();
+      showDialogueLine();
     },
     onExit: () => console.log("[case] exited"),
   };
 })();
 
-// 카드 순서 배치 인터랙션 (case 화면, 브리핑 종료 후)
-const CardOrderInteraction = (() => {
+// 카드 순서 배치 인터랙션 (case 화면, 문제 1)
+const OrderInteraction = (() => {
   const list = document.getElementById("order-card-list");
   const cards = Array.from(list.querySelectorAll(".order-card"));
 
@@ -118,11 +184,16 @@ const CardOrderInteraction = (() => {
     ).element;
   }
 
+  function reset() {
+    cards.forEach((card) => list.appendChild(card));
+  }
+
   function logOrder() {
     const order = Array.from(list.querySelectorAll(".order-card")).map(
       (card) => card.dataset.value
     );
     console.log("카드 순서:", order);
+    CaseScreen.showExplanation("", `현재 카드 순서: ${order.join(", ")}`);
   }
 
   cards.forEach((card) => {
@@ -155,10 +226,14 @@ const CardOrderInteraction = (() => {
   list.addEventListener("drop", (event) => {
     event.preventDefault();
   });
+
+  return { reset };
 })();
 
-// 빈칸 채우기 인터랙션 (case 화면, 브리핑 종료 후)
+// 빈칸 채우기 인터랙션 (case 화면, 문제 2)
 const FillBlankInteraction = (() => {
+  const EXPLANATION = "인공지능은 대량의 데이터를 통해 패턴을 학습한다.";
+
   const wordCards = Array.from(document.querySelectorAll(".word-card"));
   const blankZone = document.getElementById("blank-drop-zone");
   const answer = blankZone.dataset.answer;
@@ -201,14 +276,20 @@ const FillBlankInteraction = (() => {
     blankZone.classList.toggle("incorrect", !isCorrect);
 
     console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`);
+    CaseScreen.showExplanation(
+      isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`,
+      EXPLANATION,
+      isCorrect
+    );
   });
 
   return { reset };
 })();
 
-// 타이핑 입력 인터랙션 (case 화면, 브리핑 종료 후)
+// 타이핑 입력 인터랙션 (case 화면, 문제 3)
 const TypingInteraction = (() => {
   const ANSWER = "모델";
+  const EXPLANATION = "학습을 마친 알고리즘의 결과물을 모델이라고 부른다.";
 
   const form = document.getElementById("typing-form");
   const input = document.getElementById("typing-answer-input");
@@ -230,6 +311,11 @@ const TypingInteraction = (() => {
     input.classList.toggle("incorrect", !isCorrect);
 
     console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${ANSWER})`);
+    CaseScreen.showExplanation(
+      isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${ANSWER})`,
+      EXPLANATION,
+      isCorrect
+    );
   });
 
   hintBtn.addEventListener("click", () => {
@@ -239,20 +325,14 @@ const TypingInteraction = (() => {
   return { reset };
 })();
 
-// 가설 예측 인터랙션 (case 화면, 브리핑 종료 후)
+// 가설 예측 인터랙션 (case 화면, 문제 4)
 const PredictionInteraction = (() => {
   const ANSWER = "70% 이상";
   const EXPLANATION = "충분한 양의 학습 데이터와 검증 과정을 거친 모델은 일반적으로 70% 이상의 정확도를 보인다.";
 
   const options = Array.from(document.querySelectorAll(".prediction-option"));
-  const resultEl = document.getElementById("prediction-result");
-  const resultAnswerEl = document.getElementById("prediction-result-answer");
-  const resultDescEl = document.getElementById("prediction-result-desc");
 
   function reset() {
-    resultEl.hidden = true;
-    resultAnswerEl.textContent = "";
-    resultDescEl.textContent = "";
     options.forEach((btn) => {
       btn.disabled = false;
       btn.classList.remove("correct", "incorrect");
@@ -273,11 +353,8 @@ const PredictionInteraction = (() => {
         }
       });
 
-      resultAnswerEl.textContent = `정답: ${ANSWER}`;
-      resultDescEl.textContent = EXPLANATION;
-      resultEl.hidden = false;
-
       console.log(`선택: ${value} / 정답: ${ANSWER}`);
+      CaseScreen.showExplanation(`정답: ${ANSWER}`, EXPLANATION);
     });
   });
 
@@ -294,7 +371,7 @@ Router.register("map", {
   onExit: () => console.log("[map] exited"),
 });
 
-Router.register("case", BriefingScreen);
+Router.register("case", CaseScreen);
 
 Router.register("simulator", {
   onEnter: () => console.log("[simulator] entered"),
