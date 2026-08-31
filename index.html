@@ -69,6 +69,60 @@
             <button type="button" id="briefing-next" class="briefing-next-btn">다음</button>
           </div>
         </div>
+
+        <div id="case-interaction" class="case-interaction" hidden>
+          <h2>카드 순서 배치</h2>
+          <p class="interaction-desc">카드를 드래그해서 순서를 바꿔보세요.</p>
+          <ul id="order-card-list" class="order-card-list">
+            <li class="order-card" draggable="true" data-value="사과">사과</li>
+            <li class="order-card" draggable="true" data-value="바나나">바나나</li>
+            <li class="order-card" draggable="true" data-value="딸기">딸기</li>
+          </ul>
+        </div>
+
+        <div id="fill-blank-interaction" class="case-interaction" hidden>
+          <h2>빈칸 채우기</h2>
+          <p class="interaction-desc">단어 카드를 드래그해서 빈칸에 채워보세요.</p>
+          <p class="fill-blank-sentence">
+            인공지능은 <span id="blank-drop-zone" class="blank-drop-zone" data-answer="데이터"></span> 를 통해 학습한다
+          </p>
+          <ul id="word-card-list" class="word-card-list">
+            <li class="word-card" draggable="true" data-value="데이터">데이터</li>
+            <li class="word-card" draggable="true" data-value="감정">감정</li>
+            <li class="word-card" draggable="true" data-value="직감">직감</li>
+          </ul>
+        </div>
+
+        <div id="typing-interaction" class="case-interaction" hidden>
+          <h2>타이핑 입력</h2>
+          <p class="interaction-desc">질문에 대한 답을 입력하고 제출해보세요.</p>
+          <p class="typing-question">머신러닝에서 데이터를 학습에 사용하는 알고리즘을 무엇이라 하나요?</p>
+          <ul id="typing-hint-list" class="typing-hint-list" hidden>
+            <li class="typing-hint-item">모델</li>
+            <li class="typing-hint-item">알고리즘</li>
+            <li class="typing-hint-item">파라미터</li>
+          </ul>
+          <form id="typing-form" class="typing-form">
+            <input type="text" id="typing-answer-input" class="typing-answer-input" placeholder="답을 입력하세요" autocomplete="off" />
+            <button type="submit" id="typing-submit" class="typing-submit-btn">제출</button>
+            <button type="button" id="typing-hint-btn" class="typing-hint-btn">힌트</button>
+          </form>
+        </div>
+
+        <div id="prediction-interaction" class="case-interaction" hidden>
+          <h2>가설 예측</h2>
+          <p class="interaction-desc">결과를 예측해보고 보기를 선택해보세요.</p>
+          <p class="prediction-question">이 모델의 정확도는 몇 % 일까요?</p>
+          <div id="prediction-options" class="prediction-options">
+            <button type="button" class="prediction-option" data-value="50% 미만">50% 미만</button>
+            <button type="button" class="prediction-option" data-value="50~70%">50~70%</button>
+            <button type="button" class="prediction-option" data-value="70% 이상">70% 이상</button>
+          </div>
+          <div id="prediction-result" class="prediction-result" hidden>
+            <p id="prediction-result-answer" class="prediction-result-answer"></p>
+            <p id="prediction-result-desc" class="prediction-result-desc"></p>
+          </div>
+        </div>
       </section>
 
       <section id="screen-simulator" class="screen" data-screen="simulator" hidden>

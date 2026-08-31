@@ -50,6 +50,10 @@ const BriefingScreen = (() => {
 
   const lineEl = document.getElementById("briefing-line");
   const nextBtn = document.getElementById("briefing-next");
+  const interactionEl = document.getElementById("case-interaction");
+  const fillBlankEl = document.getElementById("fill-blank-interaction");
+  const typingEl = document.getElementById("typing-interaction");
+  const predictionEl = document.getElementById("prediction-interaction");
 
   let index = 0;
 
@@ -60,6 +64,11 @@ const BriefingScreen = (() => {
   function advance() {
     if (index >= lines.length - 1) {
       console.log("브리핑 종료");
+      nextBtn.hidden = true;
+      interactionEl.hidden = false;
+      fillBlankEl.hidden = false;
+      typingEl.hidden = false;
+      predictionEl.hidden = false;
       return;
     }
     index += 1;
@@ -72,10 +81,207 @@ const BriefingScreen = (() => {
     onEnter: () => {
       console.log("[case] entered");
       index = 0;
+      nextBtn.hidden = false;
+      interactionEl.hidden = true;
+      fillBlankEl.hidden = true;
+      typingEl.hidden = true;
+      predictionEl.hidden = true;
+      FillBlankInteraction.reset();
+      TypingInteraction.reset();
+      PredictionInteraction.reset();
       render();
     },
     onExit: () => console.log("[case] exited"),
   };
+})();
+
+// 카드 순서 배치 인터랙션 (case 화면, 브리핑 종료 후)
+const CardOrderInteraction = (() => {
+  const list = document.getElementById("order-card-list");
+  const cards = Array.from(list.querySelectorAll(".order-card"));
+
+  let draggingCard = null;
+
+  function getDragAfterElement(y) {
+    const candidates = cards.filter((card) => card !== draggingCard);
+
+    return candidates.reduce(
+      (closest, card) => {
+        const box = card.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset, element: card };
+        }
+        return closest;
+      },
+      { offset: Number.NEGATIVE_INFINITY, element: null }
+    ).element;
+  }
+
+  function logOrder() {
+    const order = Array.from(list.querySelectorAll(".order-card")).map(
+      (card) => card.dataset.value
+    );
+    console.log("카드 순서:", order);
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("dragstart", (event) => {
+      draggingCard = card;
+      card.classList.add("dragging");
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", card.dataset.value);
+    });
+
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+      draggingCard = null;
+      logOrder();
+    });
+  });
+
+  list.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    if (!draggingCard) return;
+
+    const afterElement = getDragAfterElement(event.clientY);
+    if (afterElement == null) {
+      list.appendChild(draggingCard);
+    } else {
+      list.insertBefore(draggingCard, afterElement);
+    }
+  });
+
+  list.addEventListener("drop", (event) => {
+    event.preventDefault();
+  });
+})();
+
+// 빈칸 채우기 인터랙션 (case 화면, 브리핑 종료 후)
+const FillBlankInteraction = (() => {
+  const wordCards = Array.from(document.querySelectorAll(".word-card"));
+  const blankZone = document.getElementById("blank-drop-zone");
+  const answer = blankZone.dataset.answer;
+
+  function reset() {
+    blankZone.textContent = "";
+    blankZone.classList.remove("correct", "incorrect");
+  }
+
+  wordCards.forEach((card) => {
+    card.addEventListener("dragstart", (event) => {
+      card.classList.add("dragging");
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", card.dataset.value);
+    });
+
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+    });
+  });
+
+  blankZone.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    blankZone.classList.add("drag-over");
+  });
+
+  blankZone.addEventListener("dragleave", () => {
+    blankZone.classList.remove("drag-over");
+  });
+
+  blankZone.addEventListener("drop", (event) => {
+    event.preventDefault();
+    blankZone.classList.remove("drag-over");
+
+    const value = event.dataTransfer.getData("text/plain");
+    blankZone.textContent = value;
+
+    const isCorrect = value === answer;
+    blankZone.classList.toggle("correct", isCorrect);
+    blankZone.classList.toggle("incorrect", !isCorrect);
+
+    console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`);
+  });
+
+  return { reset };
+})();
+
+// 타이핑 입력 인터랙션 (case 화면, 브리핑 종료 후)
+const TypingInteraction = (() => {
+  const ANSWER = "모델";
+
+  const form = document.getElementById("typing-form");
+  const input = document.getElementById("typing-answer-input");
+  const hintBtn = document.getElementById("typing-hint-btn");
+  const hintList = document.getElementById("typing-hint-list");
+
+  function reset() {
+    input.value = "";
+    input.classList.remove("correct", "incorrect");
+    hintList.hidden = true;
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const value = input.value.trim();
+    const isCorrect = value === ANSWER;
+    input.classList.toggle("correct", isCorrect);
+    input.classList.toggle("incorrect", !isCorrect);
+
+    console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${ANSWER})`);
+  });
+
+  hintBtn.addEventListener("click", () => {
+    hintList.hidden = !hintList.hidden;
+  });
+
+  return { reset };
+})();
+
+// 가설 예측 인터랙션 (case 화면, 브리핑 종료 후)
+const PredictionInteraction = (() => {
+  const ANSWER = "70% 이상";
+  const EXPLANATION = "충분한 양의 학습 데이터와 검증 과정을 거친 모델은 일반적으로 70% 이상의 정확도를 보인다.";
+
+  const options = Array.from(document.querySelectorAll(".prediction-option"));
+  const resultEl = document.getElementById("prediction-result");
+  const resultAnswerEl = document.getElementById("prediction-result-answer");
+  const resultDescEl = document.getElementById("prediction-result-desc");
+
+  function reset() {
+    resultEl.hidden = true;
+    resultAnswerEl.textContent = "";
+    resultDescEl.textContent = "";
+    options.forEach((btn) => {
+      btn.disabled = false;
+      btn.classList.remove("correct", "incorrect");
+    });
+  }
+
+  options.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const value = btn.dataset.value;
+      const isCorrect = value === ANSWER;
+
+      options.forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.value === ANSWER) {
+          b.classList.add("correct");
+        } else if (b === btn) {
+          b.classList.add("incorrect");
+        }
+      });
+
+      resultAnswerEl.textContent = `정답: ${ANSWER}`;
+      resultDescEl.textContent = EXPLANATION;
+      resultEl.hidden = false;
+
+      console.log(`선택: ${value} / 정답: ${ANSWER}`);
+    });
+  });
+
+  return { reset };
 })();
 
 Router.register("intro", {
