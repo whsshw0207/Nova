@@ -601,17 +601,32 @@ const BossScreen = (() => {
 
   const clearBtn = document.getElementById("boss-clear-btn");
 
-  const endingLines = [
-    "...드디어 끝났군.",
-    "네가 보여준 판단이 사건의 실마리를 풀었다.",
-    "하지만 이건 시작에 불과해.",
-    "더 큰 무언가가 뒤에서 움직이고 있다.",
-    "다음 단계를 준비하도록.",
-    "수고했다, 오늘은 여기까지.",
+  const ENDING_LINES_HIGH = [
+    "결과가 예상보다 좋군. 신뢰할 수 있겠어.",
+    "네 판단력은 이 사건 내내 흔들리지 않았다.",
+    "덕분에 사건의 핵심에 가까이 다가섰다.",
+    "이 정도면 다음 단계를 맡겨도 되겠어.",
+    "수고했다. 오늘은 여기까지 하지.",
   ];
+  const ENDING_LINES_MID = ["그럭저럭 넘어갔군.", "수고했다. 오늘은 여기까지 하지."];
+  const ENDING_LINES_LOW = ["...더 할 말은 없다. 오늘은 여기까지."];
+
+  let currentEndingLines = ENDING_LINES_MID;
+
   const endingEl = document.getElementById("boss-ending");
   const endingLineEl = document.getElementById("boss-ending-line");
   const endingNextBtn = document.getElementById("boss-ending-next-btn");
+
+  const endingChoiceEl = document.getElementById("boss-ending-choice");
+  const accuseBtn = document.getElementById("boss-accuse-btn");
+  const silenceBtn = document.getElementById("boss-silence-btn");
+
+  const endingResultEl = document.getElementById("boss-ending-result");
+  const endingResultTextEl = document.getElementById("boss-ending-result-text");
+  const ENDING_RESULT_TEXTS = {
+    accuse: "당신은 진실을 선택했습니다. END A",
+    silence: "당신은 침묵을 선택했습니다. END B",
+  };
 
   let glitchTimeoutId = null;
   let dragging = false;
@@ -634,25 +649,46 @@ const BossScreen = (() => {
     simulatorEl.hidden = true;
     startBtn.hidden = false;
     endingEl.hidden = true;
+    endingChoiceEl.hidden = true;
+    endingResultEl.hidden = true;
 
     slider.value = "50";
     sliderValueEl.textContent = slider.value;
   }
 
+  function pickEndingLines() {
+    if (affinity >= 5) return ENDING_LINES_HIGH;
+    if (affinity >= 0) return ENDING_LINES_MID;
+    return ENDING_LINES_LOW;
+  }
+
   function renderEndingLine() {
-    endingLineEl.textContent = endingLines[endingIndex];
+    endingLineEl.textContent = currentEndingLines[endingIndex];
   }
 
   function showEndingScene() {
     contentEl.hidden = true;
+    currentEndingLines = pickEndingLines();
     endingIndex = 0;
     endingEl.hidden = false;
     renderEndingLine();
   }
 
+  function showEndingChoice() {
+    endingEl.hidden = true;
+    endingChoiceEl.hidden = false;
+  }
+
+  function showEndingResult(key) {
+    endingChoiceEl.hidden = true;
+    endingResultTextEl.textContent = ENDING_RESULT_TEXTS[key];
+    endingResultEl.hidden = false;
+  }
+
   function advanceEnding() {
-    if (endingIndex >= endingLines.length - 1) {
+    if (endingIndex >= currentEndingLines.length - 1) {
       console.log("보스 씬 종료");
+      showEndingChoice();
       return;
     }
     endingIndex += 1;
@@ -713,6 +749,9 @@ const BossScreen = (() => {
   });
 
   endingNextBtn.addEventListener("click", advanceEnding);
+
+  accuseBtn.addEventListener("click", () => showEndingResult("accuse"));
+  silenceBtn.addEventListener("click", () => showEndingResult("silence"));
 
   return {
     onEnter: () => {

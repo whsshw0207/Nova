@@ -948,3 +948,53 @@ body {
 .boss-ending-next-btn:hover {
   background: #6280ff;
 }
+
+.boss-choice-options {
+  display: flex;
+  gap: 10px;
+  align-self: flex-end;
+  margin-top: 16px;
+}
+
+.boss-choice-btn {
+  padding: 10px 24px;
+  background: #2a2e3a;
+  color: #f0f0f0;
+  border: 1px solid #3a3f4f;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.boss-choice-btn:hover {
+  background: #3a3f4f;
+  border-color: #4f6df5;
+}
+
+.boss-ending-result {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boss-ending-result[hidden] {
+  display: none;
+}
+
+.boss-ending-result-panel {
+  padding: 32px 40px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.boss-ending-result-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f0f0f0;
+}
