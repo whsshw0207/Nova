@@ -583,6 +583,46 @@ const PredictionInteraction = (() => {
   return { reset };
 })();
 
+// 보스 화면: 진입 시 글리치 연출 후 시뮬레이터 시작 버튼 노출
+const BossScreen = (() => {
+  const GLITCH_DURATION = 900;
+
+  const glitchEl = document.getElementById("boss-glitch");
+  const contentEl = document.getElementById("boss-content");
+  const startBtn = document.getElementById("boss-start-btn");
+
+  let glitchTimeoutId = null;
+
+  function playGlitch() {
+    contentEl.hidden = true;
+    glitchEl.classList.remove("playing");
+    void glitchEl.offsetWidth; // 애니메이션 재시작을 위한 강제 리플로우
+    glitchEl.classList.add("playing");
+
+    glitchTimeoutId = setTimeout(() => {
+      glitchEl.classList.remove("playing");
+      contentEl.hidden = false;
+    }, GLITCH_DURATION);
+  }
+
+  startBtn.addEventListener("click", () => {
+    console.log("시뮬레이터 시작");
+    Router.navigate("simulator");
+  });
+
+  return {
+    onEnter: () => {
+      console.log("[boss] entered");
+      playGlitch();
+    },
+    onExit: () => {
+      clearTimeout(glitchTimeoutId);
+      glitchEl.classList.remove("playing");
+      console.log("[boss] exited");
+    },
+  };
+})();
+
 Router.register("intro", {
   onEnter: () => console.log("[intro] entered"),
   onExit: () => console.log("[intro] exited"),
@@ -605,10 +645,7 @@ Router.register("simulator", {
   onExit: () => console.log("[simulator] exited"),
 });
 
-Router.register("boss", {
-  onEnter: () => console.log("[boss] entered"),
-  onExit: () => console.log("[boss] exited"),
-});
+Router.register("boss", BossScreen);
 
 Router.register("cutscene", CutsceneScreen);
 

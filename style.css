@@ -717,3 +717,99 @@ body {
 .gameover-btn.secondary:hover {
   background: #3a3f4f;
 }
+
+.boss-screen {
+  position: relative;
+  flex: 1;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #05060a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.boss-glitch {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: #e05a5a;
+  mix-blend-mode: screen;
+}
+
+.boss-glitch.playing {
+  animation: boss-glitch-flicker 0.9s steps(1, end) 1;
+}
+
+@keyframes boss-glitch-flicker {
+  0% {
+    opacity: 0.85;
+    background: #e05a5a;
+    filter: hue-rotate(0deg) contrast(1.6) saturate(1.8);
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+    background: #4f6df5;
+    filter: hue-rotate(120deg) contrast(1.8) saturate(2);
+  }
+  32% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0.9;
+    background: #9be79b;
+    filter: hue-rotate(220deg) contrast(2) saturate(1.6);
+  }
+  56% {
+    opacity: 0;
+  }
+  68% {
+    opacity: 0.6;
+    background: #e05a5a;
+    filter: hue-rotate(300deg) contrast(1.5) saturate(1.8);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.boss-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: fade-in 0.3s ease;
+}
+
+.boss-content[hidden] {
+  display: none;
+}
+
+.boss-title {
+  margin: 0;
+  color: #f5a3a3;
+  letter-spacing: 2px;
+}
+
+.boss-start-btn {
+  padding: 12px 28px;
+  background: #4f6df5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.boss-start-btn:hover {
+  background: #6280ff;
+}
