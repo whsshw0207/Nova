@@ -583,15 +583,40 @@ const PredictionInteraction = (() => {
   return { reset };
 })();
 
-// 보스 화면: 진입 시 글리치 연출 후 시뮬레이터 시작 버튼 노출
+// 보스 화면: 진입 시 글리치 연출 후 시뮬레이터 영역(슬라이더 + 드래그 노드) 노출
 const BossScreen = (() => {
   const GLITCH_DURATION = 900;
+  const NODE_SIZE = 32;
 
   const glitchEl = document.getElementById("boss-glitch");
   const contentEl = document.getElementById("boss-content");
   const startBtn = document.getElementById("boss-start-btn");
+  const simulatorEl = document.getElementById("boss-simulator");
+
+  const slider = document.getElementById("boss-slider");
+  const sliderValueEl = document.getElementById("boss-slider-value");
+
+  const nodeArea = document.getElementById("boss-node-area");
+  const node = document.getElementById("boss-node");
+
+  const clearBtn = document.getElementById("boss-clear-btn");
+
+  const endingLines = [
+    "...드디어 끝났군.",
+    "네가 보여준 판단이 사건의 실마리를 풀었다.",
+    "하지만 이건 시작에 불과해.",
+    "더 큰 무언가가 뒤에서 움직이고 있다.",
+    "다음 단계를 준비하도록.",
+    "수고했다, 오늘은 여기까지.",
+  ];
+  const endingEl = document.getElementById("boss-ending");
+  const endingLineEl = document.getElementById("boss-ending-line");
+  const endingNextBtn = document.getElementById("boss-ending-next-btn");
 
   let glitchTimeoutId = null;
+  let dragging = false;
+  let areaRect = null;
+  let endingIndex = 0;
 
   function playGlitch() {
     contentEl.hidden = true;
@@ -605,19 +630,101 @@ const BossScreen = (() => {
     }, GLITCH_DURATION);
   }
 
+  function resetSimulator() {
+    simulatorEl.hidden = true;
+    startBtn.hidden = false;
+    endingEl.hidden = true;
+
+    slider.value = "50";
+    sliderValueEl.textContent = slider.value;
+  }
+
+  function renderEndingLine() {
+    endingLineEl.textContent = endingLines[endingIndex];
+  }
+
+  function showEndingScene() {
+    contentEl.hidden = true;
+    endingIndex = 0;
+    endingEl.hidden = false;
+    renderEndingLine();
+  }
+
+  function advanceEnding() {
+    if (endingIndex >= endingLines.length - 1) {
+      console.log("보스 씬 종료");
+      return;
+    }
+    endingIndex += 1;
+    renderEndingLine();
+  }
+
+  function centerNode() {
+    const rect = nodeArea.getBoundingClientRect();
+    node.style.left = `${rect.width / 2 - NODE_SIZE / 2}px`;
+    node.style.top = `${rect.height / 2 - NODE_SIZE / 2}px`;
+  }
+
+  function setNodePosition(clientX, clientY) {
+    const rect = areaRect || nodeArea.getBoundingClientRect();
+    let x = clientX - rect.left - NODE_SIZE / 2;
+    let y = clientY - rect.top - NODE_SIZE / 2;
+    x = Math.max(0, Math.min(x, rect.width - NODE_SIZE));
+    y = Math.max(0, Math.min(y, rect.height - NODE_SIZE));
+
+    node.style.left = `${x}px`;
+    node.style.top = `${y}px`;
+
+    console.log(`노드 위치: (${Math.round(x)}, ${Math.round(y)})`);
+  }
+
   startBtn.addEventListener("click", () => {
     console.log("시뮬레이터 시작");
-    Router.navigate("simulator");
+    startBtn.hidden = true;
+    simulatorEl.hidden = false;
+    centerNode();
   });
+
+  slider.addEventListener("input", () => {
+    sliderValueEl.textContent = slider.value;
+    console.log("슬라이더 값:", slider.value);
+  });
+
+  node.addEventListener("pointerdown", (event) => {
+    dragging = true;
+    areaRect = nodeArea.getBoundingClientRect();
+    node.setPointerCapture(event.pointerId);
+  });
+
+  node.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    setNodePosition(event.clientX, event.clientY);
+  });
+
+  node.addEventListener("pointerup", (event) => {
+    dragging = false;
+    areaRect = null;
+    node.releasePointerCapture(event.pointerId);
+  });
+
+  clearBtn.addEventListener("click", () => {
+    console.log("보스 클리어");
+    showEndingScene();
+  });
+
+  endingNextBtn.addEventListener("click", advanceEnding);
 
   return {
     onEnter: () => {
       console.log("[boss] entered");
+      resetSimulator();
       playGlitch();
     },
     onExit: () => {
       clearTimeout(glitchTimeoutId);
       glitchEl.classList.remove("playing");
+      dragging = false;
+      areaRect = null;
       console.log("[boss] exited");
     },
   };

@@ -813,3 +813,138 @@ body {
 .boss-start-btn:hover {
   background: #6280ff;
 }
+
+.boss-simulator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 360px;
+  max-width: 90vw;
+}
+
+.boss-simulator[hidden] {
+  display: none;
+}
+
+.boss-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  color: #b8bcc8;
+  font-size: 13px;
+}
+
+.boss-slider {
+  flex: 1;
+}
+
+.boss-slider-value {
+  min-width: 32px;
+  text-align: right;
+  color: #f0f0f0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.boss-node-area {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 10px;
+}
+
+.boss-node {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #4f6df5;
+  cursor: grab;
+  touch-action: none;
+}
+
+.boss-node:active {
+  cursor: grabbing;
+  background: #6280ff;
+}
+
+.boss-clear-btn {
+  padding: 12px 28px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.boss-clear-btn:hover {
+  background: #5fc463;
+}
+
+.boss-ending {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  padding: 24px;
+}
+
+.boss-ending[hidden] {
+  display: none;
+}
+
+.boss-ending-character {
+  width: 200px;
+  background: #55585f;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d0d2d8;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.boss-ending-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #1b1e26;
+  border: 1px solid #2a2e3a;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.boss-ending-line {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+.boss-ending-next-btn {
+  align-self: flex-end;
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #4f6df5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.boss-ending-next-btn:hover {
+  background: #6280ff;
+}

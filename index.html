@@ -162,6 +162,28 @@
         <div id="boss-content" class="boss-content" hidden>
           <h1 class="boss-title">보스 케이스 진입</h1>
           <button type="button" id="boss-start-btn" class="boss-start-btn">시뮬레이터 시작</button>
+
+          <div id="boss-simulator" class="boss-simulator" hidden>
+            <div class="boss-slider-row">
+              <label for="boss-slider">안정화 수치</label>
+              <input type="range" id="boss-slider" class="boss-slider" min="0" max="100" value="50" />
+              <span id="boss-slider-value" class="boss-slider-value">50</span>
+            </div>
+
+            <div id="boss-node-area" class="boss-node-area">
+              <div id="boss-node" class="boss-node"></div>
+            </div>
+
+            <button type="button" id="boss-clear-btn" class="boss-clear-btn">클리어 판정</button>
+          </div>
+        </div>
+
+        <div id="boss-ending" class="boss-ending" hidden>
+          <div class="boss-ending-character">NOVA</div>
+          <div class="boss-ending-panel">
+            <p id="boss-ending-line" class="boss-ending-line"></p>
+            <button type="button" id="boss-ending-next-btn" class="boss-ending-next-btn">다음</button>
+          </div>
         </div>
       </section>
 
