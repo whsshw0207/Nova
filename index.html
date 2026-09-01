@@ -58,7 +58,10 @@
 
       <section id="screen-case" class="screen" data-screen="case" hidden>
         <div class="case-layout">
-          <div class="case-character">NOVA</div>
+          <div id="case-character" class="case-character">
+            <span class="case-character-label">NOVA</span>
+            <p id="case-reaction-text" class="case-reaction-text" hidden></p>
+          </div>
 
           <div class="case-panel">
             <div class="case-bubble">
@@ -72,6 +75,11 @@
             </div>
 
             <div class="case-answer-area">
+              <div id="case-timer" class="case-timer" hidden>
+                <span class="case-timer-label">남은 시간</span>
+                <span id="case-timer-value" class="case-timer-value">20</span>
+              </div>
+
               <div id="phase-order" class="case-phase" hidden>
                 <p class="interaction-desc">카드를 드래그해서 순서를 바꿔보세요.</p>
                 <ul id="order-card-list" class="order-card-list">
@@ -79,6 +87,7 @@
                   <li class="order-card" draggable="true" data-value="바나나">바나나</li>
                   <li class="order-card" draggable="true" data-value="딸기">딸기</li>
                 </ul>
+                <button type="button" id="order-confirm-btn" class="order-confirm-btn">순서 확인</button>
               </div>
 
               <div id="phase-blank" class="case-phase" hidden>
@@ -113,6 +122,14 @@
                 </div>
               </div>
 
+              <div id="phase-choice" class="case-phase" hidden>
+                <div id="choice-options" class="choice-options">
+                  <button type="button" class="choice-option" data-affinity="2">재밌었어</button>
+                  <button type="button" class="choice-option" data-affinity="0">어려웠어</button>
+                  <button type="button" class="choice-option" data-affinity="-1">별로였어</button>
+                </div>
+              </div>
+
               <div id="case-explanation" class="case-explanation" hidden>
                 <p id="case-explanation-answer" class="case-explanation-answer"></p>
                 <p id="case-explanation-desc" class="case-explanation-desc"></p>
@@ -120,6 +137,17 @@
 
               <button type="button" id="case-next-btn" class="case-next-btn" hidden>다음</button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-gameover" class="screen" data-screen="gameover" hidden>
+        <div class="gameover-panel">
+          <h1>Game Over</h1>
+          <p>타임아웃이 5회 누적되어 조사에 실패했다.</p>
+          <div class="gameover-actions">
+            <button type="button" id="gameover-restart-btn" class="gameover-btn">다시 시작</button>
+            <button type="button" id="gameover-map-btn" class="gameover-btn secondary">맵으로 돌아가기</button>
           </div>
         </div>
       </section>
