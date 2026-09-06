@@ -30,8 +30,6 @@ const Router = (() => {
   }
 
   function switchTo(name) {
-    if (currentScreen === name) return;
-
     if (currentScreen && routes.has(currentScreen)) {
       routes.get(currentScreen).onExit?.();
     }

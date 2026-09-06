@@ -3,6 +3,15 @@
 // 대화 선택지에서 사용하는 호감도 전역 변수
 let affinity = 0;
 
+// 획득한 개념 카드를 저장하는 전역 배열
+let deckCards = [];
+
+// 케이스 클리어 시 지급할 더미 카드 풀
+const DUMMY_CARD_POOL = [
+  { id: "card_1", name: "머신러닝 기초", desc: "데이터로 패턴을 학습한다" },
+  { id: "card_2", name: "경사하강법", desc: "오차를 줄이는 최적화 방법" },
+];
+
 // 컷씬 화면 로직 (cutscene)
 const CutsceneScreen = (() => {
   const lines = [
@@ -337,6 +346,11 @@ const CaseScreen = (() => {
       if (mode !== "choice") return;
       affinity += Number(btn.dataset.affinity);
       console.log("affinity:", affinity);
+
+      const nextCard = DUMMY_CARD_POOL[deckCards.length % DUMMY_CARD_POOL.length];
+      deckCards.push({ ...nextCard });
+      console.log("deckCards:", deckCards);
+
       Router.navigate("cutscene");
     });
   });
@@ -588,6 +602,10 @@ const BossScreen = (() => {
   const GLITCH_DURATION = 900;
   const NODE_SIZE = 32;
 
+  const deckSelectionEl = document.getElementById("boss-deck-selection");
+  const deckListEl = document.getElementById("boss-deck-list");
+  const deckConfirmBtn = document.getElementById("boss-deck-confirm-btn");
+
   const glitchEl = document.getElementById("boss-glitch");
   const contentEl = document.getElementById("boss-content");
   const startBtn = document.getElementById("boss-start-btn");
@@ -632,6 +650,64 @@ const BossScreen = (() => {
   let dragging = false;
   let areaRect = null;
   let endingIndex = 0;
+
+  function renderDeckSelection() {
+    deckListEl.innerHTML = "";
+
+    if (deckCards.length === 0) {
+      const emptyEl = document.createElement("p");
+      emptyEl.className = "boss-deck-empty";
+      emptyEl.textContent = "보유 카드 없음";
+      deckListEl.appendChild(emptyEl);
+      return;
+    }
+
+    deckCards.forEach((card, index) => {
+      const cardEl = document.createElement("label");
+      cardEl.className = "boss-deck-card";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = true;
+      checkbox.className = "boss-deck-card-checkbox";
+      checkbox.dataset.index = String(index);
+
+      const infoEl = document.createElement("div");
+      infoEl.className = "boss-deck-card-info";
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "boss-deck-card-name";
+      nameEl.textContent = card.name;
+
+      const descEl = document.createElement("div");
+      descEl.className = "boss-deck-card-desc";
+      descEl.textContent = card.desc;
+
+      infoEl.appendChild(nameEl);
+      infoEl.appendChild(descEl);
+
+      cardEl.appendChild(checkbox);
+      cardEl.appendChild(infoEl);
+      deckListEl.appendChild(cardEl);
+    });
+  }
+
+  function showDeckSelection() {
+    contentEl.hidden = true;
+    deckSelectionEl.hidden = false;
+    renderDeckSelection();
+  }
+
+  function confirmDeckSelection() {
+    const selectedCards = Array.from(deckListEl.querySelectorAll(".boss-deck-card-checkbox"))
+      .filter((checkbox) => checkbox.checked)
+      .map((checkbox) => deckCards[Number(checkbox.dataset.index)]);
+
+    console.log("선택된 덱 카드:", selectedCards);
+
+    deckSelectionEl.hidden = true;
+    playGlitch();
+  }
 
   function playGlitch() {
     contentEl.hidden = true;
@@ -748,6 +824,8 @@ const BossScreen = (() => {
     showEndingScene();
   });
 
+  deckConfirmBtn.addEventListener("click", confirmDeckSelection);
+
   endingNextBtn.addEventListener("click", advanceEnding);
 
   accuseBtn.addEventListener("click", () => showEndingResult("accuse"));
@@ -757,13 +835,14 @@ const BossScreen = (() => {
     onEnter: () => {
       console.log("[boss] entered");
       resetSimulator();
-      playGlitch();
+      showDeckSelection();
     },
     onExit: () => {
       clearTimeout(glitchTimeoutId);
       glitchEl.classList.remove("playing");
       dragging = false;
       areaRect = null;
+      deckSelectionEl.hidden = true;
       console.log("[boss] exited");
     },
   };
