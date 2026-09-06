@@ -6,6 +6,30 @@ let affinity = 0;
 // 획득한 개념 카드를 저장하는 전역 배열
 let deckCards = [];
 
+// intro 화면에서 입력한 플레이어 이름
+let playerName = "";
+
+// 하단 플레이어 대화창에 쓰이는 더미 대사
+const PLAYER_DUMMY_LINE = "음... 알겠어.";
+
+// 하단 플레이어 대화창에 이름과 대사를 표시 (text 생략 시 더미 대사 사용)
+function showPlayerLine(barEl, text = PLAYER_DUMMY_LINE) {
+  barEl.hidden = false;
+  barEl.querySelector(".player-dialogue-name").textContent = playerName || "플레이어";
+  barEl.querySelector(".player-dialogue-text").textContent = text;
+}
+
+// { speaker: 'nova' | 'player', text } 한 줄을 상단 NOVA 영역 / 하단 플레이어 영역에 배타적으로 표시
+function renderDialogueLine(line, novaTextEl, bottomBarEl) {
+  if (line.speaker === "player") {
+    novaTextEl.textContent = "";
+    showPlayerLine(bottomBarEl, line.text);
+  } else {
+    novaTextEl.textContent = line.text;
+    bottomBarEl.hidden = true;
+  }
+}
+
 // 케이스 클리어 시 지급할 더미 카드 풀
 const DUMMY_CARD_POOL = [
   { id: "card_1", name: "머신러닝 기초", desc: "데이터로 패턴을 학습한다" },
@@ -14,23 +38,25 @@ const DUMMY_CARD_POOL = [
 
 // 컷씬 화면 로직 (cutscene)
 const CutsceneScreen = (() => {
-  const lines = [
-    "이곳은 대체 어디지...",
-    "정신을 차려보니 낯선 공간에 서 있었다.",
-    "저 앞에 무언가 움직이는 것 같다.",
+  const dialogue = [
+    { speaker: "nova", text: "이곳은 대체 어디지..." },
+    { speaker: "player", text: "여기는... 처음 보는 곳인데." },
+    { speaker: "nova", text: "정신을 차려보니 낯선 공간에 서 있었다." },
+    { speaker: "nova", text: "저 앞에 무언가 움직이는 것 같다." },
   ];
 
   const stage = document.getElementById("cutscene-stage");
   const lineEl = document.getElementById("cutscene-line");
+  const bottomBarEl = document.getElementById("cutscene-bottom-bar");
 
   let index = 0;
 
   function render() {
-    lineEl.textContent = lines[index];
+    renderDialogueLine(dialogue[index], lineEl, bottomBarEl);
   }
 
   function advance() {
-    if (index >= lines.length - 1) {
+    if (index >= dialogue.length - 1) {
       console.log("컷씬 종료");
       return;
     }
@@ -53,11 +79,13 @@ const CutsceneScreen = (() => {
 // 사건 화면 진행 제어 (브리핑 대사 + 문제 4종을 한 화면에 순서대로 표시)
 const CaseScreen = (() => {
   const dialogueLines = [
-    "브리핑을 시작하겠다.",
-    "이번 사건은 실종자 관련 건이다.",
-    "목격자 진술에 따르면 마지막 위치는 항구 근처였다.",
-    "단서를 수집하고 현장을 조사하도록.",
-    "질문 있나?",
+    { speaker: "nova", text: "브리핑을 시작하겠다." },
+    { speaker: "player", text: "네, 알겠습니다." },
+    { speaker: "nova", text: "이번 사건은 실종자 관련 건이다." },
+    { speaker: "nova", text: "목격자 진술에 따르면 마지막 위치는 항구 근처였다." },
+    { speaker: "player", text: "항구 쪽을 확인해보겠습니다." },
+    { speaker: "nova", text: "단서를 수집하고 현장을 조사하도록." },
+    { speaker: "nova", text: "질문 있나?" },
   ];
 
   const quizOrder = ["order", "blank", "typing", "prediction"];
@@ -94,6 +122,7 @@ const CaseScreen = (() => {
   const reactionTextEl = document.getElementById("case-reaction-text");
   const timerEl = document.getElementById("case-timer");
   const timerValueEl = document.getElementById("case-timer-value");
+  const bottomBarEl = document.getElementById("case-bottom-bar");
 
   const choicePhaseEl = document.getElementById("phase-choice");
   const choiceButtons = Array.from(document.querySelectorAll(".choice-option"));
@@ -188,9 +217,9 @@ const CaseScreen = (() => {
     hideAllPhases();
     resetCharacterState();
     dialogueBubble.hidden = false;
-    dialogueBubble.textContent = dialogueLines[dialogueIndex];
     explanationEl.hidden = true;
     nextBtn.hidden = false;
+    renderDialogueLine(dialogueLines[dialogueIndex], dialogueBubble, bottomBarEl);
   }
 
   function showRetryDialogue() {
@@ -346,6 +375,8 @@ const CaseScreen = (() => {
       if (mode !== "choice") return;
       affinity += Number(btn.dataset.affinity);
       console.log("affinity:", affinity);
+
+      showPlayerLine(bottomBarEl);
 
       const nextCard = DUMMY_CARD_POOL[deckCards.length % DUMMY_CARD_POOL.length];
       deckCards.push({ ...nextCard });
@@ -620,14 +651,20 @@ const BossScreen = (() => {
   const clearBtn = document.getElementById("boss-clear-btn");
 
   const ENDING_LINES_HIGH = [
-    "결과가 예상보다 좋군. 신뢰할 수 있겠어.",
-    "네 판단력은 이 사건 내내 흔들리지 않았다.",
-    "덕분에 사건의 핵심에 가까이 다가섰다.",
-    "이 정도면 다음 단계를 맡겨도 되겠어.",
-    "수고했다. 오늘은 여기까지 하지.",
+    { speaker: "nova", text: "결과가 예상보다 좋군. 신뢰할 수 있겠어." },
+    { speaker: "player", text: "감사합니다." },
+    { speaker: "nova", text: "네 판단력은 이 사건 내내 흔들리지 않았다." },
+    { speaker: "nova", text: "덕분에 사건의 핵심에 가까이 다가섰다." },
+    { speaker: "player", text: "최선을 다했습니다." },
+    { speaker: "nova", text: "이 정도면 다음 단계를 맡겨도 되겠어." },
+    { speaker: "nova", text: "수고했다. 오늘은 여기까지 하지." },
   ];
-  const ENDING_LINES_MID = ["그럭저럭 넘어갔군.", "수고했다. 오늘은 여기까지 하지."];
-  const ENDING_LINES_LOW = ["...더 할 말은 없다. 오늘은 여기까지."];
+  const ENDING_LINES_MID = [
+    { speaker: "nova", text: "그럭저럭 넘어갔군." },
+    { speaker: "player", text: "죄송합니다. 다음엔 더 잘하겠습니다." },
+    { speaker: "nova", text: "수고했다. 오늘은 여기까지 하지." },
+  ];
+  const ENDING_LINES_LOW = [{ speaker: "nova", text: "...더 할 말은 없다. 오늘은 여기까지." }];
 
   let currentEndingLines = ENDING_LINES_MID;
 
@@ -645,6 +682,8 @@ const BossScreen = (() => {
     accuse: "당신은 진실을 선택했습니다. END A",
     silence: "당신은 침묵을 선택했습니다. END B",
   };
+
+  const bottomBarEl = document.getElementById("boss-bottom-bar");
 
   let glitchTimeoutId = null;
   let dragging = false;
@@ -727,6 +766,7 @@ const BossScreen = (() => {
     endingEl.hidden = true;
     endingChoiceEl.hidden = true;
     endingResultEl.hidden = true;
+    bottomBarEl.hidden = true;
 
     slider.value = "50";
     sliderValueEl.textContent = slider.value;
@@ -739,7 +779,7 @@ const BossScreen = (() => {
   }
 
   function renderEndingLine() {
-    endingLineEl.textContent = currentEndingLines[endingIndex];
+    renderDialogueLine(currentEndingLines[endingIndex], endingLineEl, bottomBarEl);
   }
 
   function showEndingScene() {
@@ -759,6 +799,7 @@ const BossScreen = (() => {
     endingChoiceEl.hidden = true;
     endingResultTextEl.textContent = ENDING_RESULT_TEXTS[key];
     endingResultEl.hidden = false;
+    showPlayerLine(bottomBarEl);
   }
 
   function advanceEnding() {
@@ -912,6 +953,8 @@ Router.init();
       resultEl.hidden = false;
       return;
     }
+
+    playerName = name;
 
     resultEl.textContent = `캐릭터 생성 완료: ${name} (${genderLabels[selectedGender]})`;
     resultEl.hidden = false;
