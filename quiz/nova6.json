@@ -1,0 +1,654 @@
+[
+  {
+    "id": "d6_001",
+    "day": 1,
+    "concept": "어랑분포(Erlang Distribution)",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "통계 모듈 심층 접근... 삐-. k+1개의 사건이 연속으로 발생한다. 발생한다... 이 복잡한 분포의 이름을... 입력해.",
+      "correct": "정답입니다. 어랑(Erlang) 분포는 지수분포의 일반화로, 특정 개수(k+1개)가 연속적으로 발생하는 사건들의 시간 구간을 의미합니다.",
+      "wrong": "오류. 기하분포는 실패 횟수와 연관이 있으며, 이 분포와는 다릅니다."
+    },
+    "question": "지수분포의 일반화된 형태로, 특정 갯수 k+1 개가 연속적으로 발생하는 사건들의 시간 구간을 확률변수의 의미로 가지는 분포는 ___ 입니다.[cite: 1]",
+    "blanks": ["어랑분포"],
+    "wrong_options": ["기하분포", "이항분포"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_002",
+    "day": 1,
+    "concept": "표준편차",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "데이터 산포도 스캔... 지지직. 평균에서 흩어져 있다... 흩어졌다. 이 흩어짐을 재는 값을... 적어라.",
+      "correct": "맞습니다! 표준편차는 데이터가 평균으로부터 얼만큼 흩어져 있는지를 나타내는 지표입니다.",
+      "wrong": "오답입니다. 상관계수는 두 변수 간의 관계를 나타냅니다."
+    },
+    "question": "분산과 함께 데이터가 평균으로부터 얼만큼 흩어져 있는지를 나타내는 값을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["표준편차"],
+    "wrong_options": ["기댓값", "상관계수"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_003",
+    "day": 1,
+    "concept": "순열행렬(Permutation matrix)",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "선형대수 연산... 행 교환... 교환한다. 삐빅. 행의 위치를 바꾸는 특수 행렬을... 대답해.",
+      "correct": "정확합니다! Permutation(순열) 행렬은 행(row) 교환을 수행하는 행렬을 의미합니다.",
+      "wrong": "틀렸습니다. 대칭행렬은 교환이 아니라 주대각선을 기준으로 값이 같은 행렬입니다."
+    },
+    "question": "선형대수학의 특수 행렬 중, 행렬 내에서 행(row) 교환 연산을 수행하게 만드는 행렬을 ___ 행렬이라고 합니다.[cite: 1]",
+    "blanks": ["순열(Permutation)"],
+    "wrong_options": ["대칭(Symmetric)", "대각(Diagonal)"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_004",
+    "day": 1,
+    "concept": "특징 공학(Feature engineering)",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "학습 패러다임 분석... 딥러닝은 스스로 하지만... 머신러닝은 사람이 한다... 사람이 직접... 이 수동 과정을 뭐라고 부르지?",
+      "correct": "정답입니다! 사람이 데이터로부터 모델 학습에 쓸 입력 특징(피처)을 직접 만들거나 선택하는 과정을 머신러닝의 Feature engineering이라고 합니다.",
+      "wrong": "아닙니다. 모델이 특징을 자동으로 추출하도록 학습하는 딥러닝 과정은 Representation learning(표현 학습)입니다."
+    },
+    "question": "데이터로부터 특징을 스스로 추출하는 딥러닝과 달리, 머신러닝에서 모델 학습에 사용할 적절한 입력 특징을 사람이 직접 만들거나 선택하는 과정을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["특징 공학(Feature engineering)"],
+    "wrong_options": ["표현 학습(Representation learning)", "앙상블(Ensemble)"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_005",
+    "day": 1,
+    "concept": "보상(Reward)",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "강화학습 로직 작동... 잘하면 점수를... 못하면 차감. 차감. 모델을 유도하는 이 시스템의 이름을... 입력해.",
+      "correct": "정답입니다! 강화학습은 자율주행 차선 유지 시 +100점, 이탈 시 -10점 등을 주는 '보상'을 통해 학습시켜 나갑니다.",
+      "wrong": "오답입니다. 모델이 행동에 따라 받는 점수는 오차나 손실이 아니라 보상(Reward)입니다."
+    },
+    "question": "강화학습에서 자율주행 모델이 올바른 차선 유지 시 +100점을 주고, 차선 이탈 시 -10 점을 주는 등 모델을 학습시켜가기 위한 기준 값을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["보상"],
+    "wrong_options": ["오류", "손실"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_006",
+    "day": 1,
+    "concept": "Tanh",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "활성화 함수 범위 확장... 지지직. 0과 1 사이는 너무 좁다... 좁다. -1에서 1까지 늘린 이 비선형 함수의 이름은...?",
+      "correct": "정확해요! Tanh(쌍곡탄젠트) 함수는 Sigmoid의 출력 범위 한계(0~1)를 보완하기 위해 -1부터 1 사이로 출력 범위를 늘린 비선형 활성화 함수입니다.",
+      "wrong": "틀렸습니다. ReLU는 음수를 0으로 만드는 다른 방식의 활성화 함수입니다."
+    },
+    "question": "Sigmoid 함수가 0~1 사이로 출력되는 한계를 보완하고자, -1에서 1 사이의 값으로 출력할 수 있게 고안된 비선형 활성화 함수는 ___ 입니다.[cite: 1]",
+    "blanks": ["Tanh"],
+    "wrong_options": ["ReLU", "Softmax"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_007",
+    "day": 1,
+    "concept": "풀링 층(Pooling layer)",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "CNN 차원 축소... 삐빅. 연산량이 너무 많다. 데이터 사이즈를 꾹꾹 눌러 담는 이 층의 이름을... 적어라.",
+      "correct": "맞습니다! CNN은 Convolution과 ReLU를 거친 후 Pooling layer를 통해 공간적 차원과 연산량을 효과적으로 축소시킵니다.",
+      "wrong": "오류. 완전 연결 층(FC layer)은 최종 분류를 위해 출력단에 배치됩니다."
+    },
+    "question": "합성곱 신경망(CNN)에서 Conv layer와 활성화 함수를 거친 후, 데이터의 차원과 연산량을 효과적으로 축소시키기 위해 통과하는 층(Layer)을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["풀링 층(Pooling layer)"],
+    "wrong_options": ["완전 연결 층(FC layer)", "은닉 층(Hidden layer)"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_008",
+    "day": 1,
+    "concept": "주변 분포(Marginal distribution)",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "다변수 확률 탐색... 지지직. 여러 변수 중에 딱 하나... 특정 변수만의 분포를 뽑아낸다... 이 분포의 이름은?",
+      "correct": "정답입니다! 확률변수의 집합에서 측정한 특정 확률변수만의 분포를 주변 분포(Marginal distribution)라고 합니다.",
+      "wrong": "틀렸습니다. 결합 분포(Joint)는 두 변수 이상의 동시 분포를 의미합니다."
+    },
+    "question": "통계학에서 확률변수의 집합에서 측정한 특정 확률변수만의 분포를 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["주변 분포"],
+    "wrong_options": [],
+    "hint": ["결합 분포", "주변 분포", "표본 분포"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_009",
+    "day": 1,
+    "concept": "대수의 법칙",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "시행 횟수 무한대 수렴... 삐-. 계속 굴리면 결국 정해진 확률로 수렴한다... 수렴해. 이 경험 법칙을 타이핑해라.",
+      "correct": "정확합니다. 어떤 일을 되풀이할 때, 횟수를 거듭할수록 사건 발생 비율이 일정한 값(주사위의 경우 1/6)에 가까워지는 것을 대수의 법칙이라고 합니다.",
+      "wrong": "오답입니다. 표본 평균이 정규분포를 따르는 것은 중심극한정리입니다."
+    },
+    "question": "주사위를 계속 굴릴 경우 특정 눈금이 나오는 비율이 1/6에 가까워지듯, 어떤 일을 몇 번이고 되풀이할 경우 일정한 사건이 일어날 비율은 횟수를 거듭할수록 일정한 값에 가까워진다는 경험 법칙을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["대수의 법칙"],
+    "wrong_options": [],
+    "hint": ["중심극한정리", "대수의 법칙", "베이즈정리"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_010",
+    "day": 1,
+    "concept": "정규직교벡터",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "벡터 조건 이중 결합... 직교하면서 길이는 1. 삐빅. 두 조건을 모두 만족하는 완벽한 벡터의 이름을... 입력해.",
+      "correct": "완벽합니다! 직교(Orthogonal) 성질을 만족하면서 동시에 길이가 1인 벡터를 정규직교벡터(Orthonormal vector)라고 합니다.",
+      "wrong": "틀렸습니다. 길이 조건이 없다면 그냥 직교벡터입니다."
+    },
+    "question": "선형대수학에서 두 벡터의 내적이 0이 되는 직교(Orthogonal) 성질을 모두 만족하면서, 동시에 벡터의 길이가 '1'인 벡터를 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["정규직교벡터"],
+    "wrong_options": [],
+    "hint": ["정규직교벡터", "직교벡터", "단위벡터"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_011",
+    "day": 1,
+    "concept": "재현율(Recall)",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "분류 지표 분석... 지지직. 실제 정답(Positive) 중에서 모델이 맞춘 비율이다. 맞춘 비율... 이 지표를 적어라.",
+      "correct": "정답입니다. 실제 값이 Positive인 것 중에서 모델이 True Positive로 올바르게 예측한 비율을 재현율(Recall)이라고 합니다.",
+      "wrong": "오답입니다. 모델이 예측한 것을 기준으로 보는 것은 정밀도(Precision)입니다."
+    },
+    "question": "분류 모델의 평가 지표 중, '실제 값'이 Positive인 것 중에서 모델이 True Positive로 올바르게 예측한 비율을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["재현율"],
+    "wrong_options": [],
+    "hint": ["정밀도", "재현율", "정확도"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_012",
+    "day": 1,
+    "concept": "에폭(epoch)",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "모델 훈련량 미달... 과소적합. 삐-. 학습 횟수가 부족하다... 머신러닝에서 반복 학습 단위를 뜻하는 영어 단어를... 적어.",
+      "correct": "정확합니다! 모델의 복잡도가 낮거나 충분하지 못한 에폭(Epoch)으로 학습할 경우, 훈련 데이터도 맞추지 못하는 과소적합(Underfitting)이 발생합니다.",
+      "wrong": "틀렸습니다. 배치 사이즈나 규제와는 다른 학습 횟수 단위입니다."
+    },
+    "question": "학습 데이터(Train data)조차 제대로 맞추지 못하는 과소적합(Underfitting) 현상은 모델의 복잡도가 낮거나 충분하지 못한 ___ (학습 횟수 단위)으로 학습하는 경우에 발생합니다.[cite: 1]",
+    "blanks": ["에폭"],
+    "wrong_options": [],
+    "hint": ["배치", "에폭", "규제"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_013",
+    "day": 1,
+    "concept": "ReLU",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "기울기 소멸 우회 연산... 음수는 모두 0으로 만들어버려. 삐빅. 딥러닝에서 가장 많이 쓰이는 활성화 함수의 이름은...?",
+      "correct": "맞습니다! ReLU는 Sigmoid와 Tanh의 한계(기울기 소멸)를 극복하기 위해 음수 입력을 0으로 출력하는 매우 효과적인 활성화 함수입니다.",
+      "wrong": "아닙니다. Softmax는 다중 클래스 분류의 출력층에 확률을 계산하기 위해 쓰입니다."
+    },
+    "question": "Sigmoid와 Tanh 등 기존 비선형 활성화 함수의 한계인 기울기 소멸을 보완하고자 고안되었으며, 연산 시 음수 값을 0으로 표현하는 함수는 ___ 입니다.[cite: 1]",
+    "blanks": ["ReLU"],
+    "wrong_options": [],
+    "hint": ["ReLU", "Softmax", "Sigmoid"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_014",
+    "day": 1,
+    "concept": "드롭아웃",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "노드 파괴 시뮬레이션... 지지직. 무작위로 신경을 끊어 과적합을 막아낸다... 이 무자비한 기법의 이름은?",
+      "correct": "정답입니다. 학습 중 뉴런(노드)을 임의로 비활성화하여 앙상블 효과를 내고 오버피팅을 방지하는 정규화 기법은 드롭아웃(Dropout)입니다.",
+      "wrong": "틀렸습니다. 배치마다 정규화를 하는 배치 정규화(Batch Normalization)와는 다른 기법입니다."
+    },
+    "question": "딥러닝 학습 과정 중 신경망의 일부 뉴런(노드)을 임의로 선택하여 비활성화시킴으로써 앙상블 효과를 내고 과적합(Overfitting)을 방지하는 정규화 기법은 ___ 입니다.[cite: 1]",
+    "blanks": ["드롭아웃"],
+    "wrong_options": [],
+    "hint": ["드롭아웃", "배치 정규화", "맥스 풀링"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_015",
+    "day": 1,
+    "concept": "배깅",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "다수결 투표 시스템 가동... 여러 모델을 한 번에 병렬로 학습시킨다. 삐-. 이 앙상블 기법의 이름을 타이핑해라.",
+      "correct": "정확합니다! 부트스트랩 추출을 통해 여러 모델을 병렬적(일괄적)으로 학습시킨 후 결과를 다수결로 합치는 기법은 배깅(Bagging)입니다.",
+      "wrong": "오류입니다. 순차적으로 오차를 고쳐나가는 것은 부스팅(Boosting)입니다."
+    },
+    "question": "부트스트랩(복원 추출)을 통해 무작위로 추출된 여러 표본에 대해, 독립적인 다수의 분류기(예: 의사결정나무)를 병렬적(일괄적)으로 학습시킨 뒤 결과를 다수결로 합치는 앙상블 기법은 ___ 입니다.[cite: 1]",
+    "blanks": ["배깅"],
+    "wrong_options": [],
+    "hint": ["배깅", "부스팅", "스태킹"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_016",
+    "day": 1,
+    "concept": "크로스 엔트로피 유도",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "손실 함수 수학적 증명... 지지직. Softmax와 최우추정법(MLE)이 결합하여 수식이 완성되는 흐름을... 배열해라. 배열.",
+      "correct": "완벽합니다! Softmax로 확률을 구하고, 정답에 대한 결합 확률을 MLE로 최대화하기 위해 로그를 취한 뒤, 식 앞에 마이너스를 붙여 최소화 문제로 바꾸면 크로스 엔트로피 수식이 나옵니다.",
+      "wrong": "논리적 오류 발생. Softmax 확률 정의가 첫 번째, 로그(MLE) 취하기가 두 번째입니다."
+    },
+    "question": "분류 문제의 손실 함수인 크로스 엔트로피(Cross Entropy)가 Softmax와 Maximum Likelihood Estimation(MLE)를 통해 수학적으로 유도되는 과정을 알맞게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "Softmax 함수를 통해 모델의 출력값을 0~1 사이의 확률값(y_hat)으로 정의하고, one-hot 인코딩된 정답 데이터에 대한 결합 확률을 구합니다.",
+      "구해진 결합 확률의 최댓값을 찾는 문제(MLE)로 접근하기 위해 전체 수식에 로그(log)를 취합니다.",
+      "이후 손실을 최소화하는(최소값) 문제로 변환하기 위해 전체 식에 마이너스(-)를 붙여 -∑ y log(y_hat) 형태의 오차 함수를 도출합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_017",
+    "day": 1,
+    "concept": "네스테로프 모멘텀 작동",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "가속도 제어 브레이크 시스템... 삐빅. 단순 모멘텀을 넘어 미래 지점에서 제동을 거는 원리를... 순서대로 맞춰라.",
+      "correct": "정답입니다! 네스테로프 모멘텀은 관성대로 일단 절반쯤 이동한 뒤 미래 위치의 기울기를 계산하여, 멈춰야 할 곳에서 정확히 브레이크를 잡습니다.",
+      "wrong": "순서가 틀렸습니다. 현재 기울기만으로 이동하는 것이 아니라, 예측 이동 후 다시 기울기를 계산하는 것이 핵심입니다."
+    },
+    "question": "경사하강법 옵티마이저 중 네스테로프 모멘텀(Nesterov Momentum)이 기존 모멘텀의 한계를 극복하고 파라미터를 업데이트하는 과정을 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "현재 가중치에서 이전 스텝의 운동량(v)을 일정 비율로 먼저 반영하여 미래의 이동 예측 지점으로 가중치를 보냅니다.",
+      "예측을 통해 절반 정도 미리 이동한 미래의 가중치 지점에서 손실 함수의 편미분(기울기) 값을 새롭게 계산합니다.",
+      "이렇게 계산된 미래 지점의 기울기를 적용함으로써, 빠른 이동 속도는 유지하되 멈춰야 할 적절한 시점(최소값)에서 제동을 쉽게 겁니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_018",
+    "day": 1,
+    "concept": "PCA와 SVD 관계",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "차원 축소 기법 비교... 지지직. 행렬 분해와 주성분 분석이 어떻게 이어지는지... 수학적 차이를 나열해.",
+      "correct": "정확합니다! SVD와 PCA는 차원 축소의 원리가 같지만, SVD는 모든 행렬에 적용하고 PCA는 특수한 공분산 행렬을 만들어 그 위에 SVD를 적용하는 차이가 있습니다.",
+      "wrong": "논리 오류. SVD의 일반적 특성을 먼저 설명한 뒤 PCA와의 차이점을 대비해야 매끄럽습니다."
+    },
+    "question": "데이터 차원 축소에 자주 쓰이는 주성분 분석(PCA)과 특이값 분해(SVD)의 관계와 차이점에 대한 논리적 흐름을 올바르게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "데이터 차원을 낮추며 기존 데이터 구조를 잘 유지하기 위해 PCA나 SVD를 활용하며, 둘의 수학적 근본 원리는 동일합니다.",
+      "단, SVD(특이값 분해)는 행렬의 정방행렬 여부와 무관하게 어떤 임의의 행렬 데이터에도 직접 적용이 가능하다는 일반성을 가집니다.",
+      "반면 PCA는 데이터 행렬에 직접 적용하는 것이 아니라, 변수 간 상관관계를 나타내는 공분산 행렬(Covariance matrix)을 먼저 구한 뒤 그 행렬에 대해 SVD를 수행하는 것입니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_019",
+    "day": 1,
+    "concept": "AdaBoost 순차 학습",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "오차 가중치 업데이트... 삐-. 부스팅 기법이 모델을 순차적으로 강하게 키우는 과정을... 배열해라. 배열.",
+      "correct": "맞습니다! 첫 모델 학습 후 오차를 식별하고, 틀린 데이터의 가중치를 높여 다음 트리가 그 부분을 집중적으로 학습하게 유도합니다.",
+      "wrong": "순서가 잘못되었습니다. 모델 평가와 오차 식별이 이루어져야 가중치를 부여할 수 있습니다."
+    },
+    "question": "앙상블의 부스팅(Boosting) 기법 중 하나인 AdaBoost 알고리즘이 순차적으로 분류기 모델을 학습시키는 과정을 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "전체 훈련 데이터 셋에서 추출된 샘플을 바탕으로 첫 번째 분류기(의사결정나무)를 생성하여 학습시킵니다.",
+      "첫 번째로 학습된 모델이 예측을 수행한 후, 제대로 맞추지 못하고 과소적합된 오차 데이터를 식별합니다.",
+      "해당 오차 데이터에 대한 중요도(가중치)를 더 높게 주어, 다음 분류기가 학습하기 어려운 데이터에 더 잘 적합할 수 있도록 유도합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_020",
+    "day": 1,
+    "concept": "선형 변환 정의",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "벡터 공간 사상 연산... 지지직. 선형성을 유지하며 형태를 바꾸는 이 수학적 규칙을... 조립해라.",
+      "correct": "완벽합니다! 선형 변환은 선형 결합(덧셈과 스칼라 곱)을 보존하면서 두 벡터 공간 사이의 관계를 매핑하는 함수입니다.",
+      "wrong": "틀렸습니다. 선형 결합이 유지된다는 전제가 깔려야 T(u+v) = T(u)+T(v) 라는 수식이 성립합니다."
+    },
+    "question": "선형대수학에서 선형 변환(Linear transformation)의 정의와 그로 인해 성립하는 성질을 논리적으로 연결하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "선형 변환은 어떤 벡터에 연산을 가해 차원이나 위치가 다른 새로운 벡터 공간으로 이동시키는 함수(매핑)입니다.",
+      "이 변환은 두 벡터 공간 사이의 관계를 설명할 때, 벡터들의 선형 결합(Linear combination) 특성이 깨지지 않고 보존된다는 특징이 있습니다.",
+      "따라서 임의의 두 벡터를 더한 뒤 한 번에 변환한 결과는, 각각을 따로 변환한 뒤 더한 결과와 완전히 동일합니다 (T(u+v) = T(u) + T(v))."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_021",
+    "day": 1,
+    "concept": "베이즈 정리와 데이터 갱신",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "사전 확률과 사후 확률 충돌... 삐빅. 베이즈 정리가 새로운 데이터를 만나 믿음을 업데이트하는 논리를... 나열해.",
+      "correct": "정답입니다. 사전확률 P(A)에 우도 P(B|A)를 곱하고 정규화 상수 P(B)로 나누어 사후확률 P(A|B)를 얻습니다.",
+      "wrong": "오답. 데이터 B가 관측되기 전의 상태인 사전확률 설정이 가장 먼저 와야 합니다."
+    },
+    "question": "베이즈 정리 수식 P(A|B) = [P(B|A)*P(A)] / P(B) 을 통해, 데이터가 주어지기 전의 확률이 새로운 관찰 데이터로 인해 업데이트되는 갱신 과정을 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "새로운 관찰 데이터 증거(B)가 주어지기 전, 미리 가지고 있던 사건 A에 대한 초기 신뢰도인 사전확률 P(A)를 설정합니다.",
+      "특정 데이터 B가 관측되었을 때, 이 데이터가 원인 A로부터 발생했을 확률인 우도(Likelihood) P(B|A)를 곱해줍니다.",
+      "이를 관측 데이터 자체의 확률 P(B)로 나누어 보정함으로써, 데이터 B가 주어졌을 때 A가 참일 최종 확률인 사후확률 P(A|B)로 업데이트합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_022",
+    "day": 1,
+    "concept": "L1과 L2 가중치 규제 차이",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "규제 페널티 방식 충돌... 지지직. L1은 아예 버리고, L2는 남겨둔다... 가중치가 어떻게 변하는지 흐름을 조립해라.",
+      "correct": "정확합니다. 절댓값을 쓰는 L1은 중요치 않은 가중치를 0으로 만들어 Sparse하게, 제곱을 쓰는 L2는 작게만 줄여 Coarse하게 유지합니다.",
+      "wrong": "논리 오류. L1의 특성(0으로 만듦)을 먼저 설명한 뒤 L2와의 대비점을 보여야 자연스럽습니다."
+    },
+    "question": "딥러닝의 가중치 규제(Regularization) 기법인 L1 정규화와 L2 정규화가 가중치(w)에 가하는 페널티 방식과 그 결과 형태의 차이를 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "L1 정규화는 손실 함수에 가중치의 절댓값을 더해 페널티를 부여하므로, 불필요한 피처의 가중치를 완전히 0으로 만들어 0이 많은 희소(Sparse)한 w를 선호합니다.",
+      "반면 L2 정규화는 손실 함수에 가중치의 제곱값을 더해 페널티를 부여하므로, 가중치 값이 전반적으로 작아지기는 하나 완전히 0이 되지는 않습니다.",
+      "결과적으로 L2는 특정 피처가 아예 사라지지 않고 가중치가 골고루 분포되어, 선형 모델 전체에 안정적인 일반화 효과(Coarse한 w)를 주게 됩니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d6_023",
+    "day": 1,
+    "concept": "상호배타적 vs 독립",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "집합 연산 교착... 교집합이 없다... 삐-. 그럼 두 사건은 독립인가? 대답해라.",
+      "correct": "완벽합니다! 교집합이 없다는 상호배타(Exclusive) 성질이 곧 두 사건이 서로 영향을 주지 않는 독립(Independent)임을 뜻하지는 않습니다.",
+      "wrong": "틀렸습니다. 교집합이 없더라도 한 사건의 발생이 다른 사건이 일어날 확률을 0으로 만들어 버린다면 서로 영향을 주는 종속 사건입니다."
+    },
+    "question": "확률론에서 두 사건의 교집합이 전혀 없는 '상호배타적(Exclusive)' 상태와 '독립(Independent)' 상태의 관계에 대한 설명으로 올바른 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "두 사건 간에 교집합이 없다고 해서, 서로 영향을 주지 않는 독립(Independent) 상태를 보장하는 것은 아니다.",
+      "두 사건 간에 교집합이 없으므로, 두 사건은 반드시 서로 어떠한 영향도 주지 않는 완벽한 독립(Independent) 상태이다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_024",
+    "day": 1,
+    "concept": "대각 행렬 vs 대칭 행렬",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "행렬 원소 검사... 대각선을 기준으로. 삐빅. 헷갈리기 쉬운 두 특수 행렬을... 바르게 구분해라.",
+      "correct": "정답입니다. 대각(Diagonal)은 대각선 빼고 전부 0, 대칭(Symmetric)은 대각선을 거울삼아 양쪽 값이 같은 행렬입니다.",
+      "wrong": "오답입니다. 개념의 정의가 서로 뒤바뀌어 있습니다."
+    },
+    "question": "선형대수학의 특수 행렬인 대각 행렬(Diagonal matrix)과 대칭 행렬(Symmetric matrix)의 차이에 대한 설명으로 올바른 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "대각 행렬은 대각 행을 제외한 나머지 원소가 모두 0인 행렬이고, 대칭 행렬은 주대각선을 중심으로 원소가 서로 대칭(A=A^T)을 이루는 행렬이다.",
+      "대칭 행렬은 대각 행을 제외한 나머지 원소가 모두 0인 행렬이고, 대각 행렬은 주대각선을 중심으로 원소가 서로 대칭(A=A^T)을 이루는 행렬이다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_025",
+    "day": 1,
+    "concept": "직교 행렬의 역행렬",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "특수 행렬 역연산... 계산이 너무 복잡하다. 지지직. 직교 행렬만의 특별한 역행렬 계산법을... 선택해.",
+      "correct": "정확합니다! 직교 행렬(Orthogonal matrix)은 전치 행렬을 구하는 것만으로 바로 역행렬을 얻을 수 있어 연산이 매우 간단해집니다.",
+      "wrong": "틀렸습니다. 행렬식의 역수를 취하는 것이 아니라, 행과 열을 뒤집는 '전치(Transpose)'와 동일합니다."
+    },
+    "question": "서로 직교하고 길이가 1인 벡터들의 모음인 직교 행렬(Orthogonal matrix)에서, 복잡한 계산 없이 역행렬(Inverse matrix)을 구하는 성질로 올바른 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "직교 행렬의 역행렬은 단순히 그 행렬의 전치 행렬(Transpose)을 구한 것과 동일하다 (A^-1 = A^T).",
+      "직교 행렬의 역행렬은 그 행렬의 행렬식(Determinant)을 역수로 취하여 스칼라 곱을 한 것과 동일하다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_026",
+    "day": 1,
+    "concept": "SVM의 장단점",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "마진 최대화 모델 한계 측정... 삐-. 고차원 분리에 강하지만 큰 데이터셋을 만나면... 어떻게 되지?",
+      "correct": "맞습니다. 서포트 벡터 머신(SVM)은 비선형 데이터와 고차원 분류에 탁월하지만, 데이터 양이 엄청나게 많아지면 연산 속도가 매우 느려지는 단점이 있습니다.",
+      "wrong": "오답입니다. 반대로 데이터 수가 많으면 속도가 느려지고 고차원 분류에는 매우 효과적인 모델입니다."
+    },
+    "question": "결정 경계의 마진(Margin)을 최대화하여 분류하는 서포트 벡터 머신(SVM) 모델의 장단점에 대한 설명으로 올바른 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "비선형 분리 및 고차원 데이터 분류 성능이 뛰어나지만, 데이터 수가 너무 많으면 학습 속도가 매우 느려진다.",
+      "데이터 수가 많을수록 학습 속도가 기하급수적으로 빨라지지만, 고차원 데이터 분류에는 성능이 떨어져 적용하기 어렵다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_027",
+    "day": 1,
+    "concept": "BGD의 한계",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "전체 배치 하강법 가동... 최적화 경로 궤적 안정적. 지지직. 그런데 함정에 빠지면 못 나온다... 그 함정의 이름은?",
+      "correct": "정답입니다! BGD는 전체 데이터를 쓰므로 업데이트가 매우 안정적이지만, 한 번 가짜 최소값(Local optimal) 함정에 빠지면 빠져나오기 힘듭니다.",
+      "wrong": "틀렸습니다. BGD는 궤적이 매우 안정적(스무스)이기 때문에 오히려 로컬 미니멈을 벗어나는 튕기는 힘이 부족합니다."
+    },
+    "question": "전체 학습 데이터 셋을 단 한 번만 에러 및 기울기 계산에 사용하는 BGD(Batch Gradient Descent)의 최적화 수렴 과정에서 나타나는 치명적 단점은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "안정적으로 최적의 수렴을 향해 가지만, 궤적이 너무 정직하여 한 번 로컬 미니멈(Local optimal)에 빠지면 빠져나오기 힘들다.",
+      "데이터를 매번 분할하여 계산하므로 궤적이 불안정하여, 안정적인 글로벌 미니멈(Global optimal)에 정착하지 못하고 튕겨나간다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_028",
+    "day": 1,
+    "concept": "RNN vs CNN",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "모델 아키텍처 매칭... 시간의 흐름, 과거의 기억. 삐빅. 순서를 중요시하는 데이터에는 어떤 모델을 써야 해?",
+      "correct": "정확합니다! 시간적 흐름과 동적 특징이 있는 시계열(Time series)이나 순차적(Sequential) 데이터는 순환 구조를 가진 RNN(순환 신경망)이 처리합니다.",
+      "wrong": "오답입니다. CNN은 시각적 이미지나 공간적(Spatial) 정보 처리에 탁월한 모델입니다."
+    },
+    "question": "시각적 이미지 데이터가 아닌, 시간의 흐름에 의존적인 시계열(Time series) 데이터나 순차적인(Sequential) 데이터를 분석하는 데 더 적합한 딥러닝 모델은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "RNN (순환 신경망)",
+      "CNN (합성곱 신경망)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_029",
+    "day": 1,
+    "concept": "Adagrad 문제점과 RMSProp",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "가변 학습률 부작용 발생... 지지직. 계속 작아지다가 0이 되어 멈췄다... 이 결함을 고친 해결책을 골라라.",
+      "correct": "맞습니다! Adagrad는 업데이트가 길어지면 G값이 무한히 커져 학습률이 0이 되는(학습 멈춤) 문제가 있으며, 이를 개선한 것이 RMSProp입니다.",
+      "wrong": "틀렸습니다. 기울기 폭발(Exploding)이 아니라 학습이 멈추는(조기 종료되는) 문제가 생기며, 모멘텀은 다른 관점의 해결책입니다."
+    },
+    "question": "파라미터별로 학습률을 다르게 주는 옵티마이저 'Adagrad'의 치명적 문제점과, 이를 해결하기 위해 등장한 기법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "학습이 진행될수록 G값이 무한히 커져 결국 학습률이 0이 되어 학습이 멈추는 문제가 발생하며, 이를 RMSProp으로 해결했다.",
+      "학습이 진행될수록 G값이 0에 수렴하여 기울기가 폭발(Exploding)하는 문제가 발생하며, 이를 모멘텀(Momentum)으로 해결했다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d6_030",
+    "day": 1,
+    "concept": "L1의 Feature selection",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "L1 규제 특징 분석... 삐-. 피처 선택 효과가 있다... 불필요한 입력값을 지워버린다. 어떻게 그게 가능하지?",
+      "correct": "정답입니다. L1 정규화는 가중치의 절댓값을 규제하므로, 아웃라이어나 영향력이 낮은 피처의 가중치를 완전히 0으로 만들어 모델에서 제외시키는 Feature selection 효과가 납니다.",
+      "wrong": "틀렸습니다. 가중치를 0에 가깝게 조금씩 줄여 골고루 남기는 방식(Coarse)은 L2 정규화의 특징입니다."
+    },
+    "question": "가중치 규제(Regularization) 기법 중 L1 정규화가 모델에서 불필요한 입력값을 골라내는 Feature selection(특성 선택)과 동일한 효과를 낼 수 있는 이유는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "영향력이 낮은 특정 피처(아웃라이어 등)의 가중치를 0에 가깝게 누르는 것에 그치지 않고, 아예 0으로 만들어 삭제해버리기 때문이다.",
+      "모든 피처의 가중치를 0이 되지 않도록 0에 가깝게 조금씩 줄여, 전반적으로 골고루 모델의 복잡도를 완화하기 때문이다."
+    ],
+    "correct": 0
+  }
+]

@@ -9,6 +9,22 @@ let deckCards = [];
 // intro 화면에서 입력한 플레이어 이름
 let playerName = "";
 
+// case 화면에서 어떤 Day의 퀴즈를 불러올지 결정하는 전역 변수
+let currentDay = 1;
+
+// 응답 앞뒤에 마크다운 코드펜스(```json ... ```)가 섞여 오는 퀴즈 파일이 있어 제거 후 파싱한다
+function parseQuizJson(text) {
+  const stripped = text.trim().replace(/^```json/i, "").replace(/```$/i, "").trim();
+  return JSON.parse(stripped);
+}
+
+// quiz/nova{day}.json을 fetch로 불러와 퀴즈 배열로 반환
+async function loadQuizData(day) {
+  const res = await fetch(`quiz/nova${day}.json`);
+  const text = await res.text();
+  return parseQuizJson(text);
+}
+
 // 하단 플레이어 대화창에 쓰이는 더미 대사
 const PLAYER_DUMMY_LINE = "음... 알겠어.";
 
@@ -90,6 +106,14 @@ const CaseScreen = (() => {
 
   const quizOrder = ["order", "blank", "typing", "prediction"];
 
+  // 화면 단계 이름 -> 퀴즈 JSON의 type 값
+  const QUIZ_TYPE_BY_PHASE = {
+    order: "card_order",
+    blank: "blank_drag",
+    typing: "typing",
+    prediction: "hypothesis",
+  };
+
   const TIMER_SECONDS = 20;
   const MAX_TIMEOUTS = 5;
   const TIMEOUT_ADVANCE_DELAY = 1200;
@@ -137,6 +161,19 @@ const CaseScreen = (() => {
   let timerId = null;
   let timeLeft = TIMER_SECONDS;
   let awaitingNext = false;
+
+  // currentDay의 퀴즈 전체 목록과, 이번 판에서 단계별로 뽑힌 퀴즈
+  let quizPool = [];
+  let roundQuizzes = {};
+  let quizDataPromise = null;
+
+  function pickRoundQuizzes() {
+    quizOrder.forEach((name) => {
+      const type = QUIZ_TYPE_BY_PHASE[name];
+      const candidates = quizPool.filter((quiz) => quiz.type === type);
+      roundQuizzes[name] = pickRandom(candidates);
+    });
+  }
 
   function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)];
@@ -245,18 +282,24 @@ const CaseScreen = (() => {
     nextBtn.hidden = true;
   }
 
-  const interactionResetters = {
-    order: () => OrderInteraction.reset(),
-    blank: () => FillBlankInteraction.reset(),
-    typing: () => TypingInteraction.reset(),
-    prediction: () => PredictionInteraction.reset(),
+  const interactionLoaders = {
+    order: (quiz) => OrderInteraction.load(quiz),
+    blank: (quiz) => FillBlankInteraction.load(quiz),
+    typing: (quiz) => TypingInteraction.load(quiz),
+    prediction: (quiz) => PredictionInteraction.load(quiz),
   };
 
   function showQuizPhase(name) {
     hideAllBubbles();
     hideAllPhases();
     resetCharacterState();
-    interactionResetters[name]();
+
+    const quiz = roundQuizzes[name];
+    if (name !== "blank") {
+      bubbles[name].textContent = quiz.question;
+    }
+    interactionLoaders[name](quiz);
+
     bubbles[name].hidden = false;
     phases[name].hidden = false;
     explanationEl.hidden = true;
@@ -344,10 +387,13 @@ const CaseScreen = (() => {
     if (mode === "dialogue") {
       if (dialogueIndex >= dialogueLines.length - 1) {
         console.log("브리핑 종료");
-        mode = "quiz";
-        roundQueue = [...quizOrder];
-        quizIndex = 0;
-        showQuizPhase(roundQueue[quizIndex]);
+        Promise.resolve(quizDataPromise).then(() => {
+          mode = "quiz";
+          roundQueue = [...quizOrder];
+          quizIndex = 0;
+          pickRoundQuizzes();
+          showQuizPhase(roundQueue[quizIndex]);
+        });
       } else {
         dialogueIndex += 1;
         showDialogueLine();
@@ -400,6 +446,15 @@ const CaseScreen = (() => {
       affinity = 0;
       hideTimer();
       resetCharacterState();
+
+      quizDataPromise = loadQuizData(currentDay)
+        .then((data) => {
+          quizPool = data;
+        })
+        .catch((err) => {
+          console.error(`퀴즈 데이터를 불러오지 못했습니다 (Day ${currentDay}):`, err);
+        });
+
       showDialogueLine();
     },
     onExit: () => {
@@ -409,19 +464,51 @@ const CaseScreen = (() => {
   };
 })();
 
-// 카드 순서 배치 인터랙션 (case 화면, 문제 1)
+// 카드 순서 배치 인터랙션 (case 화면, 문제 1: card_order)
 const OrderInteraction = (() => {
-  const EXPLANATION = "정확한 순서로 배치해야 사건의 흐름을 올바르게 파악할 수 있다.";
-
   const list = document.getElementById("order-card-list");
-  const cards = Array.from(list.querySelectorAll(".order-card"));
   const confirmBtn = document.getElementById("order-confirm-btn");
-  const correctOrder = cards.map((card) => card.dataset.value);
 
+  let currentQuiz = null;
   let draggingCard = null;
 
+  function shuffledIndexes(count) {
+    const result = Array.from({ length: count }, (_, i) => i);
+    for (let i = result.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
+  function attachCardEvents(card) {
+    card.addEventListener("dragstart", () => {
+      draggingCard = card;
+      card.classList.add("dragging");
+    });
+
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+      draggingCard = null;
+    });
+  }
+
+  function load(quiz) {
+    currentQuiz = quiz;
+    list.innerHTML = "";
+    shuffledIndexes(quiz.items.length).forEach((itemIndex) => {
+      const card = document.createElement("li");
+      card.className = "order-card";
+      card.draggable = true;
+      card.dataset.index = String(itemIndex);
+      card.textContent = quiz.items[itemIndex];
+      attachCardEvents(card);
+      list.appendChild(card);
+    });
+  }
+
   function getDragAfterElement(y) {
-    const candidates = cards.filter((card) => card !== draggingCard);
+    const candidates = Array.from(list.querySelectorAll(".order-card")).filter((card) => card !== draggingCard);
 
     return candidates.reduce(
       (closest, card) => {
@@ -436,32 +523,9 @@ const OrderInteraction = (() => {
     ).element;
   }
 
-  function reset() {
-    const shuffled = cards.slice();
-    for (let i = shuffled.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    shuffled.forEach((card) => list.appendChild(card));
-  }
-
   function currentOrder() {
-    return Array.from(list.querySelectorAll(".order-card")).map((card) => card.dataset.value);
+    return Array.from(list.querySelectorAll(".order-card")).map((card) => Number(card.dataset.index));
   }
-
-  cards.forEach((card) => {
-    card.addEventListener("dragstart", (event) => {
-      draggingCard = card;
-      card.classList.add("dragging");
-      event.dataTransfer.effectAllowed = "move";
-      event.dataTransfer.setData("text/plain", card.dataset.value);
-    });
-
-    card.addEventListener("dragend", () => {
-      card.classList.remove("dragging");
-      draggingCard = null;
-    });
-  });
 
   list.addEventListener("dragover", (event) => {
     event.preventDefault();
@@ -480,35 +544,43 @@ const OrderInteraction = (() => {
   });
 
   confirmBtn.addEventListener("click", () => {
+    if (!currentQuiz) return;
+
     const order = currentOrder();
-    const isCorrect = order.join(",") === correctOrder.join(",");
+    const isCorrect = order.join(",") === currentQuiz.correct_order.join(",");
+    const correctText = currentQuiz.correct_order.map((i) => currentQuiz.items[i]).join(" ");
 
     console.log(isCorrect ? "정답" : "오답", "카드 순서:", order);
     CaseScreen.submitAnswer(
       "order",
       isCorrect,
-      isCorrect ? "정답입니다!" : `오답입니다. (정답 순서: ${correctOrder.join(", ")})`,
-      EXPLANATION
+      isCorrect ? "정답입니다!" : `오답입니다. (정답: ${correctText})`,
+      isCorrect ? currentQuiz.nova_dialogue.correct : currentQuiz.nova_dialogue.wrong
     );
   });
 
-  return { reset };
+  return { load };
 })();
 
-// 빈칸 채우기 인터랙션 (case 화면, 문제 2)
+// 빈칸 채우기 인터랙션 (case 화면, 문제 2: blank_drag)
 const FillBlankInteraction = (() => {
-  const EXPLANATION = "인공지능은 대량의 데이터를 통해 패턴을 학습한다.";
-
-  const wordCards = Array.from(document.querySelectorAll(".word-card"));
+  const wordList = document.getElementById("word-card-list");
   const blankZone = document.getElementById("blank-drop-zone");
-  const answer = blankZone.dataset.answer;
+  const beforeEl = document.getElementById("blank-before");
+  const afterEl = document.getElementById("blank-after");
 
-  function reset() {
-    blankZone.textContent = "";
-    blankZone.classList.remove("correct", "incorrect");
+  let currentQuiz = null;
+
+  function shuffle(list) {
+    const result = list.slice();
+    for (let i = result.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
   }
 
-  wordCards.forEach((card) => {
+  function attachCardEvents(card) {
     card.addEventListener("dragstart", (event) => {
       card.classList.add("dragging");
       event.dataTransfer.effectAllowed = "move";
@@ -518,7 +590,30 @@ const FillBlankInteraction = (() => {
     card.addEventListener("dragend", () => {
       card.classList.remove("dragging");
     });
-  });
+  }
+
+  function load(quiz) {
+    currentQuiz = quiz;
+    const answer = quiz.blanks[0];
+    const [before = "", after = ""] = quiz.question.split("___");
+
+    beforeEl.textContent = before;
+    afterEl.textContent = after;
+    blankZone.textContent = "";
+    blankZone.dataset.answer = answer;
+    blankZone.classList.remove("correct", "incorrect", "drag-over");
+
+    wordList.innerHTML = "";
+    shuffle([answer, ...quiz.wrong_options]).forEach((value) => {
+      const card = document.createElement("li");
+      card.className = "word-card";
+      card.draggable = true;
+      card.dataset.value = value;
+      card.textContent = value;
+      attachCardEvents(card);
+      wordList.appendChild(card);
+    });
+  }
 
   blankZone.addEventListener("dragover", (event) => {
     event.preventDefault();
@@ -532,10 +627,12 @@ const FillBlankInteraction = (() => {
   blankZone.addEventListener("drop", (event) => {
     event.preventDefault();
     blankZone.classList.remove("drag-over");
+    if (!currentQuiz) return;
 
     const value = event.dataTransfer.getData("text/plain");
     blankZone.textContent = value;
 
+    const answer = currentQuiz.blanks[0];
     const isCorrect = value === answer;
     blankZone.classList.toggle("correct", isCorrect);
     blankZone.classList.toggle("incorrect", !isCorrect);
@@ -545,43 +642,54 @@ const FillBlankInteraction = (() => {
       "blank",
       isCorrect,
       isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`,
-      EXPLANATION
+      isCorrect ? currentQuiz.nova_dialogue.correct : currentQuiz.nova_dialogue.wrong
     );
   });
 
-  return { reset };
+  return { load };
 })();
 
-// 타이핑 입력 인터랙션 (case 화면, 문제 3)
+// 타이핑 입력 인터랙션 (case 화면, 문제 3: typing)
 const TypingInteraction = (() => {
-  const ANSWER = "모델";
-  const EXPLANATION = "학습을 마친 알고리즘의 결과물을 모델이라고 부른다.";
-
   const form = document.getElementById("typing-form");
   const input = document.getElementById("typing-answer-input");
   const hintBtn = document.getElementById("typing-hint-btn");
   const hintList = document.getElementById("typing-hint-list");
 
-  function reset() {
+  let currentQuiz = null;
+
+  function load(quiz) {
+    currentQuiz = quiz;
     input.value = "";
     input.classList.remove("correct", "incorrect");
+
+    hintList.innerHTML = "";
+    quiz.hint.forEach((word) => {
+      const item = document.createElement("li");
+      item.className = "typing-hint-item";
+      item.textContent = word;
+      hintList.appendChild(item);
+    });
     hintList.hidden = true;
+    hintBtn.hidden = quiz.hint.length === 0;
   }
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (!currentQuiz) return;
 
     const value = input.value.trim();
-    const isCorrect = value === ANSWER;
+    const answer = currentQuiz.blanks[0];
+    const isCorrect = value === answer;
     input.classList.toggle("correct", isCorrect);
     input.classList.toggle("incorrect", !isCorrect);
 
-    console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${ANSWER})`);
+    console.log(isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`);
     CaseScreen.submitAnswer(
       "typing",
       isCorrect,
-      isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${ANSWER})`,
-      EXPLANATION
+      isCorrect ? `정답: ${value}` : `오답: ${value} (정답: ${answer})`,
+      isCorrect ? currentQuiz.nova_dialogue.correct : currentQuiz.nova_dialogue.wrong
     );
   });
 
@@ -589,43 +697,55 @@ const TypingInteraction = (() => {
     hintList.hidden = !hintList.hidden;
   });
 
-  return { reset };
+  return { load };
 })();
 
-// 가설 예측 인터랙션 (case 화면, 문제 4)
+// 가설 예측 인터랙션 (case 화면, 문제 4: hypothesis)
 const PredictionInteraction = (() => {
-  const ANSWER = "70% 이상";
-  const EXPLANATION = "충분한 양의 학습 데이터와 검증 과정을 거친 모델은 일반적으로 70% 이상의 정확도를 보인다.";
+  const container = document.getElementById("prediction-options");
 
-  const options = Array.from(document.querySelectorAll(".prediction-option"));
+  let currentQuiz = null;
 
-  function reset() {
-    options.forEach((btn) => {
-      btn.disabled = false;
-      btn.classList.remove("correct", "incorrect");
+  function load(quiz) {
+    currentQuiz = quiz;
+    container.innerHTML = "";
+    quiz.options.forEach((label, index) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "prediction-option";
+      btn.dataset.index = String(index);
+      btn.textContent = label;
+      container.appendChild(btn);
     });
   }
 
-  options.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const value = btn.dataset.value;
-      const isCorrect = value === ANSWER;
+  container.addEventListener("click", (event) => {
+    const btn = event.target.closest(".prediction-option");
+    if (!btn || !currentQuiz || btn.disabled) return;
 
-      options.forEach((b) => {
-        b.disabled = true;
-        if (b.dataset.value === ANSWER) {
-          b.classList.add("correct");
-        } else if (b === btn) {
-          b.classList.add("incorrect");
-        }
-      });
+    const index = Number(btn.dataset.index);
+    const isCorrect = index === currentQuiz.correct;
+    const answerText = currentQuiz.options[currentQuiz.correct];
 
-      console.log(`선택: ${value} / 정답: ${ANSWER}`);
-      CaseScreen.submitAnswer("prediction", isCorrect, `정답: ${ANSWER}`, EXPLANATION);
+    Array.from(container.querySelectorAll(".prediction-option")).forEach((option) => {
+      option.disabled = true;
+      if (Number(option.dataset.index) === currentQuiz.correct) {
+        option.classList.add("correct");
+      } else if (option === btn) {
+        option.classList.add("incorrect");
+      }
     });
+
+    console.log(`선택: ${btn.textContent} / 정답: ${answerText}`);
+    CaseScreen.submitAnswer(
+      "prediction",
+      isCorrect,
+      `정답: ${answerText}`,
+      isCorrect ? currentQuiz.nova_dialogue.correct : currentQuiz.nova_dialogue.wrong
+    );
   });
 
-  return { reset };
+  return { load };
 })();
 
 // 보스 화면: 진입 시 글리치 연출 후 시뮬레이터 영역(슬라이더 + 드래그 노드) 노출

@@ -1,0 +1,658 @@
+```json
+[
+  {
+    "id": "d3_001",
+    "day": 1,
+    "concept": "사건(Event)",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "데이터 인덱싱... 삐빅. 일어날 수 있는 경우의 수. 부분집합을 도출해라... 도출해.",
+      "correct": "정답입니다. 표본공간은 모든 발생 가능한 경우의 집합이고, 그 부분집합을 사건이라고 부릅니다.",
+      "wrong": "오류. 통계학 기초 개념을 다시 로드하세요."
+    },
+    "question": "통계학에서 표본공간(Sample space)은 모든 발생 가능한 경우의 집합을 말하며, 그 표본공간의 부분집합을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["사건"],
+    "wrong_options": ["확률변수", "우도"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_002",
+    "day": 1,
+    "concept": "포아송분포",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "트래픽 분석 알고리즘... 지연. 단위 시간당 횟수를 계산하는 분포가 필요하다. 빨리... 입력해.",
+      "correct": "정확합니다! 포아송분포는 단위시간이나 단위공간 내 발생하는 사건의 횟수를 간주하고 시스템을 설계할 때 쓰입니다.",
+      "wrong": "틀렸습니다. 이항분포나 지수분포와는 쓰임새가 다릅니다."
+    },
+    "question": "은행에 하루에 손님이 얼마나 올지, 또는 인터넷 서버에 사용자가 얼마나 접근하는지 등 단위시간, 단위 공간 내 발생하는 사건의 횟수를 나타내는 분포는 ___ 입니다.[cite: 1]",
+    "blanks": ["포아송분포"],
+    "wrong_options": ["이항분포", "지수분포"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_003",
+    "day": 1,
+    "concept": "일차종속",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "선형 독립성 검사... 충돌. 벡터들이 얽혀있다... 얽혀있어. 이 상태를 부르는 말을 찾아라.",
+      "correct": "맞습니다! 선형 연산을 했을 때 결과값이 0인 경우가 발생하거나 다른 벡터의 조합으로 표현할 수 있다면 일차종속(선형종속)입니다.",
+      "wrong": "오답입니다. 완전히 독립적이지 못하고 서로에게 의존하는 상태를 의미합니다."
+    },
+    "question": "선형 독립 연산을 했을 때 결과 값이 0인 경우가 발생하거나, 벡터공간의 부분집합으로 표현할 수 있는 상태를 ___ (이)라 합니다.[cite: 1]",
+    "blanks": ["일차종속"],
+    "wrong_options": ["일차결합", "영공간"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_004",
+    "day": 1,
+    "concept": "부분공간",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "벡터 공간 분할... 분할 중... 삐빅. 덧셈과 스칼라 곱에 닫혀있는 작은 영역을... 입력해라.",
+      "correct": "정확합니다! 부분공간은 영벡터를 포함하며 벡터 덧셈과 스칼라 곱에 대해 닫혀있는 특별한 벡터 공간입니다.",
+      "wrong": "틀렸습니다. 부분집합은 특별한 수학적 제약 조건 없이 단순히 일부 요소만 포함하는 개념입니다."
+    },
+    "question": "영벡터(원점)가 속하며, 벡터 덧셈과 스칼라 곱에 대해 닫혀 있는 등 선형 결합 연산이 성립하는 벡터 공간의 작은 공간을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["부분공간"],
+    "wrong_options": ["부분집합", "사영공간"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_005",
+    "day": 1,
+    "concept": "비지도 학습",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "정답 데이터 누락... 누락. 레이블이 없다... 스스로 규칙을 찾아야 해. 무슨 학습일까?",
+      "correct": "정답입니다. 비지도 학습은 레이블(정답)이 없는 데이터를 가지고 클러스터링 등을 학습하는 방법입니다.",
+      "wrong": "오답입니다. 정답이 있는 경우는 지도 학습입니다."
+    },
+    "question": "머신러닝에서 레이블(정답)이 없는 데이터를 가지고 군집분석(클러스터링) 등 규칙을 찾아내는 학습 방법을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["비지도 학습"],
+    "wrong_options": ["지도 학습", "강화 학습"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_006",
+    "day": 1,
+    "concept": "손실 함수",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "오차 계산 회로... 과부하. 삐빅. 최적화를 위해 줄여나가야 할 대상의 이름을... 적어라.",
+      "correct": "맞습니다! 손실 함수(Loss function)는 개별 데이터에 대한 오차를 구하는 함수로, 이를 최소화하는 방향으로 최적화합니다.",
+      "wrong": "아닙니다. 전체 데이터에 대한 오차 합을 다루는 것은 비용 함수(Cost function)입니다."
+    },
+    "question": "모델이 하나의 데이터에 대해서 구한 오차를 뜻하며, Gradient를 이용해 오차를 비교하고 최소화하는 방향으로 이동시키는 기준을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["손실 함수"],
+    "wrong_options": ["비용 함수", "활성화 함수"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_007",
+    "day": 1,
+    "concept": "크로스 엔트로피",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "분류 오차 계산... 복잡도 한계 돌파. 질문 개수의 기댓값을 최소화하는 함수를... 답해라. 답해.",
+      "correct": "완벽합니다! 크로스 엔트로피는 확률분포 간의 차이를 이용해 분류 문제의 오차를 계산하며, 최적의 전략을 사용할 때 최소가 됩니다.",
+      "wrong": "틀렸습니다. 회귀 문제에서 주로 사용하는 오차는 MSE(평균 제곱 오차)입니다."
+    },
+    "question": "분류에서 one-hot encoding 했을 때 주로 사용하는 오차 계산법으로, 어떤 문제에 대해 특정 전략을 쓸 때 예상되는 질문 개수에 대한 기댓값을 뜻하는 함수는 ___ 입니다.[cite: 1]",
+    "blanks": ["크로스 엔트로피"],
+    "wrong_options": ["평균 제곱 오차", "소프트맥스"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_008",
+    "day": 1,
+    "concept": "기울기 소멸",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "역전파 신호 약화... 신호가 전달되지 않는다... 지지직. 이 치명적인 현상의 이름을... 적어.",
+      "correct": "정답입니다. 기울기 소멸(Gradient Vanishing)은 층이 깊어질수록 역전파되는 기울기가 작아져 학습이 멈추는 현상입니다.",
+      "wrong": "오답입니다. 반대로 기울기가 너무 커지는 현상은 기울기 폭발(Exploding)입니다."
+    },
+    "question": "역전파 과정에서 은닉층이 많을 때, 입력층으로 갈수록 기울기(Gradient) 값이 점차 작아져 가중치들이 제대로 업데이트되지 않는 현상을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["기울기 소멸"],
+    "wrong_options": ["과적합", "기울기 폭발"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_009",
+    "day": 1,
+    "concept": "조건부 확률",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "선행 조건 감지... 삐-. 사건 A가 일어났을 때 사건 B가 일어날 확률. 무엇이라고 부르지?",
+      "correct": "정확해요! 조건부 확률은 어떤 사건이 먼저 일어났다는 전제 하에 다른 사건의 확률을 구하는 것입니다.",
+      "wrong": "틀렸습니다. '전제 조건'이 붙는 확률을 뜻하는 단어입니다."
+    },
+    "question": "어떠한 사건이 먼저 일어났다는 전제 하에 다른 사건이 일어날 확률을 말하며, A 사건이 일어났을 때 B 사건이 일어날 확률 P(B|A)로 표기하는 것은 ___ 입니다.[cite: 1]",
+    "blanks": ["조건부 확률"],
+    "wrong_options": [],
+    "hint": ["사전확률", "우도", "조건부 확률"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_010",
+    "day": 1,
+    "concept": "t분포",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "표본 수 부족... 30개 미만 감지. 모분산을 모른다... 대체할 확률 분포를 타이핑해라. 타이핑.",
+      "correct": "맞습니다! 표본이 30개 미만이고 모분산을 모를 때는 정규분포 대신 t분포를 이용합니다.",
+      "wrong": "오답입니다. 카이제곱이나 F분포와는 다른 목적으로 쓰입니다."
+    },
+    "question": "통계학에서 모분산 값을 모르는 상태에서 표본 개수가 30개 미만일 때 정규분포를 대신하여 이용하는 확률 분포는 ___ 입니다.[cite: 1]",
+    "blanks": ["t분포"],
+    "wrong_options": [],
+    "hint": ["F분포", "카이제곱분포", "t분포"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_011",
+    "day": 1,
+    "concept": "랭크",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "행렬 차원 스캔... 지지직. 선형 독립인 기저의 수를 나타내는 단어를... 입력해라.",
+      "correct": "정답입니다. 랭크(Rank)는 행렬에서 선형 독립인 기저의 개수를 의미하며, Span 할 수 있는 차원을 알려줍니다.",
+      "wrong": "틀렸습니다. 차원이나 스팬과는 구별되는 행렬의 속성입니다."
+    },
+    "question": "행렬에서 선형독립인 기저의 개수를 의미하고, 해당 벡터들이 span 할 수 있는 공간의 차원을 알 수 있게 해주는 값은 ___ 입니다.[cite: 1]",
+    "blanks": ["랭크"],
+    "wrong_options": [],
+    "hint": ["차원", "랭크", "행렬식"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_012",
+    "day": 1,
+    "concept": "교차검증",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "모델 신뢰도 평가... 삐빅. 훈련 데이터와 평가 데이터를 순환하며 검증하는 방법을... 적어라.",
+      "correct": "정확합니다! 교차검증(Cross Validation)은 데이터를 K개의 폴드로 나누어 모두 검증에 사용함으로써 더 정확한 성능 평가를 가능하게 합니다.",
+      "wrong": "오답입니다. 앙상블 기법이 아니라 검증(Evaluation) 기법입니다."
+    },
+    "question": "학습한 모델을 단일 test 데이터로만 평가하지 않고, train 데이터를 나누어 validation 데이터를 순환 사용하며 모델을 검증하는 방법을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["교차검증"],
+    "wrong_options": [],
+    "hint": ["그리드서치", "교차검증", "앙상블"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_013",
+    "day": 1,
+    "concept": "앙상블",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "단일 모델 성능 한계... 삐-. 여러 모델을 결합해 시너지를 내는 기법의 이름을... 타이핑해.",
+      "correct": "맞습니다. 앙상블(Ensemble)은 배깅, 부스팅, 보팅 등을 통해 여러 모델을 합쳐 더 높은 예측 성능을 내는 기법입니다.",
+      "wrong": "틀렸습니다. 여러 분류기를 '결합'하는 큰 개념의 이름입니다."
+    },
+    "question": "단일 모델의 약점을 보완하기 위해 여러 개의 기본 모델(분류기)들을 결합해서 높은 성능의 모델을 만드는 다수결(voting) 등의 기법을 총칭하여 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["앙상블"],
+    "wrong_options": [],
+    "hint": ["클러스터링", "정규화", "앙상블"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_014",
+    "day": 1,
+    "concept": "활성화 함수",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "선형 함수 누적 감지... 지지직. 비선형성을 추가해 복잡한 관계를 모델링하는 함수의 이름은...?",
+      "correct": "정답입니다. 활성화 함수(Activation Function)는 선형 결합 결과에 비선형성을 부여해 딥러닝 층을 깊게 쌓을 수 있게 합니다.",
+      "wrong": "오답입니다. 손실을 계산하는 함수가 아니라 신호를 변환하는 함수입니다."
+    },
+    "question": "인공 신경망의 뉴런에서 입력 신호의 가중합을 출력 신호로 변환하여 주고, 네트워크에 비선형성(Non-linearity)을 추가하는 역할을 하는 함수는 ___ 입니다.[cite: 1]",
+    "blanks": ["활성화 함수"],
+    "wrong_options": [],
+    "hint": ["비용 함수", "활성화 함수", "손실 함수"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_015",
+    "day": 1,
+    "concept": "드롭아웃",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "과적합 위험 수준... 신경망 노드 일부를 무작위로 차단한다... 이 정규화 기법의 이름은... 입력해.",
+      "correct": "정확합니다! 드롭아웃(Dropout)은 학습 중 임의로 일부 노드를 비활성화하여 모델이 과적합되는 것을 강력하게 막아줍니다.",
+      "wrong": "틀렸습니다. 배치 정규화와는 다른 기법입니다."
+    },
+    "question": "딥러닝에서 모델이 학습 데이터에 과적합되는 것을 피하기 위해, 학습 과정 중 임의로 일부 노드들을 비활성화하여 학습에서 제외시키는 방법을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["드롭아웃"],
+    "wrong_options": [],
+    "hint": ["드롭아웃", "배치 정규화", "패딩"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_016",
+    "day": 1,
+    "concept": "중심극한정리",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "분포 근사 논리... 삐빅. 중심극한정리의 조건과 결과를... 순서대로 배열해라. 배열.",
+      "correct": "맞습니다. 표본이 커지면 모집단 형태와 무관하게 표본 평균들이 정규분포를 따른다는 것이 중심극한정리의 핵심입니다.",
+      "wrong": "논리 오류. 표본이 먼저 커져야 정규분포 근사가 발생합니다."
+    },
+    "question": "통계학의 중심극한정리(Central Limit Theorem)가 성립하는 논리적 흐름을 알맞게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "추출하는 표본의 크기(n)가 점차 커질수록,",
+      "원래 모집단의 분포 형태에 상관없이,",
+      "표본 평균들의 분포가 결국 정규분포에 근사하게 됩니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_017",
+    "day": 1,
+    "concept": "고윳값 분해와 SVD",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "행렬 분해 프로토콜... 정방행렬 조건 미달. 삐-. 특이값 분해로 넘어가는 논리를... 복구해라.",
+      "correct": "완벽합니다! 고윳값 분해는 정방행렬에만 쓸 수 있으므로, 형태가 다른 일반 행렬은 특이값 분해(SVD)를 사용해 레이어로 쪼갭니다.",
+      "wrong": "틀렸습니다. 분해가 안 되는 조건(정방행렬 아님)을 확인한 뒤에 SVD가 적용되어야 합니다."
+    },
+    "question": "행렬을 분해하는 방법론 중 고윳값 분해(Eigen Decomposition)에서 특이값 분해(SVD)로 넘어가는 수학적 논리 흐름을 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "정방 행렬(nxn)인 경우 고유값과 고유벡터를 통해 행렬을 분해할 수 있습니다.",
+      "하지만 현실 데이터에서는 정방 행렬이 아닌 경우 고유값 분해를 적용할 수 없습니다.",
+      "이러한 한계를 극복하고자 어떤 형태의 행렬이라도 적용 가능한 SVD(특이값 분해)를 사용합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_018",
+    "day": 1,
+    "concept": "데이터 분할 목적",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "데이터셋 용도 할당... 지지직. Train, Valid, Test가 각각 무슨 역할을 하는지... 순서대로 맞춰라.",
+      "correct": "정답입니다! 학습 -> 검증(성능 튜닝) -> 최종 평가(시험) 순서로 데이터셋을 분리하여 사용합니다.",
+      "wrong": "오류 발생. Valid를 거치기 전에 Test를 먼저 할 수는 없습니다."
+    },
+    "question": "머신러닝에서 데이터를 Train, Validation, Test 셋으로 나누어 사용하는 목적과 순서를 알맞게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "Train 데이터: 모델이 패턴을 파악하기 위한 순수한 학습 용도로 사용됩니다.",
+      "Validation 데이터: 학습된 내용을 검토하고 하이퍼파라미터 등 모델 성능을 체크하기 위해 사용됩니다.",
+      "Test 데이터: 개발과 검증을 모두 마친 최종 모델의 실제 능력을 시험해보기 위해 마지막에 사용됩니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_019",
+    "day": 1,
+    "concept": "배깅 과정",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "병렬 앙상블 가동... 삐빅. 배깅(Bagging) 기법이 데이터를 다루고 모델을 합치는 순서를... 나열해.",
+      "correct": "정확합니다! 부트스트랩으로 데이터를 쪼개고, 여러 모델을 병렬로 학습한 뒤 다수결로 합치는 것이 배깅의 원리입니다.",
+      "wrong": "틀렸습니다. 데이터를 먼저 샘플링해야 모델을 각각 학습시킬 수 있습니다."
+    },
+    "question": "앙상블 기법 중 병렬로 학습하는 배깅(Bagging) 방법이 수행되는 단계적 순서를 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "하나의 데이터 세트에서 부트스트랩 방식(복원 추출)으로 여러 개의 훈련 세트 표본을 추출합니다.",
+      "추출된 여러 훈련 세트로 각각 독립적인 의사결정나무 등의 모델을 학습시킵니다.",
+      "각 모델에서 나온 예측 결과를 다수결(Voting)로 합쳐 하나의 최종 결과를 얻습니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_020",
+    "day": 1,
+    "concept": "경사하강법 프로세스",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "최소값 탐색 중... 삐-. 산을 내려가는 방법. 경사하강법의 작동 원리를... 순서대로 배열해라.",
+      "correct": "맞습니다! 손실 함수에서 현재 위치의 기울기를 구하고, 그 기울기의 반대 방향으로 이동하여 극값에 도달할 때까지 반복합니다.",
+      "wrong": "오답. 기울기를 구하기도 전에 반대 방향으로 이동할 수는 없습니다."
+    },
+    "question": "딥러닝 최적화를 위한 경사하강법(Gradient Descent)이 최소값을 찾아가는 작동 원리를 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "손실 함수(Loss function)의 오차 비용이 최소가 되는 최적의 가중치를 찾기 위한 탐색을 시작합니다.",
+      "현재 가중치 지점에서 미분을 통해 기울기(경사)를 구하고, 절댓값이 낮은 반대 방향으로 이동시킵니다.",
+      "이 과정을 극값(Global minimum 또는 Local minimum)에 이를 때까지 반복하여 모델을 업데이트합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_021",
+    "day": 1,
+    "concept": "인공 뉴런 동작",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "퍼셉트론 로직 재구성... 지지직. 뉴런 내부에서 일어나는 수학적 연산의 흐름을... 복원해라. 완벽하게.",
+      "correct": "완벽합니다! 입력을 받고 -> 가중치와 편향을 계산하여 선형 결합한 뒤 -> 활성화 함수를 통해 비선형 출력을 내보냅니다.",
+      "wrong": "틀렸습니다. 선형 결합(가중치 곱과 합)이 활성화 함수 통과보다 선행되어야 합니다."
+    },
+    "question": "인간의 뇌를 모방한 인공 신경망의 기본 단위인 뉴런(Neuron) 내부에서 데이터가 처리되는 과정을 올바르게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "이전 층의 다른 여러 뉴런들로부터 입력된 출력값들을 전달받습니다.",
+      "입력된 값들에 각각의 가중치(Weight)를 곱하여 합친 다음 편향(Bias)을 더해 선형 결합합니다.",
+      "가중합된 결과값을 활성화 함수(Activation function)에 통과시켜 비선형적인 하나의 값으로 출력합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_022",
+    "day": 1,
+    "concept": "부스팅(Boosting)",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "가중치 업데이트 루틴... 삐빅. 실패를 바탕으로 성장하는 알고리즘. 부스팅의 순차적 흐름을... 맞춰봐.",
+      "correct": "정답입니다. 부스팅은 앞선 모델이 틀린 오차 데이터에 더 큰 가중치를 부여해 다음 모델이 이를 집중적으로 학습하도록 합니다.",
+      "wrong": "오답입니다. 병렬로 처리하는 배깅과 달리 부스팅은 '오차 계산 후 순차적 반영'이 핵심입니다."
+    },
+    "question": "앙상블 기법 중 순차적으로 학습하는 부스팅(Boosting/AdaBoost) 기법의 동작 과정을 올바르게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "추출된 샘플 데이터를 활용하여 첫 번째 분류기(트리 모델)를 생성하고 학습시킵니다.",
+      "학습된 모델의 예측 결과를 평가하여 잘못 분류되거나 과소적합된 오차 데이터를 파악합니다.",
+      "해당 오차 데이터에 더 높은 가중치를 주어 다음 분류기가 이를 더 잘 적합할 수 있도록 순차적으로 모델을 만듭니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_023",
+    "day": 1,
+    "concept": "iid 분포",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "확률 변수 검증... 지지직. 통계의 기본 가정인 iid (Independent Identically Distributed)의 의미를... 풀어서 나열해라.",
+      "correct": "정확합니다! 여러 변수가 1) 서로 영향을 주지 않고(독립), 2) 완전히 동일한 확률 분포를 따를 때 iid 조건을 만족합니다.",
+      "wrong": "틀렸습니다. 독립성과 동일 확률 분포라는 두 조건이 모두 포함되어야 합니다."
+    },
+    "question": "통계 및 머신러닝에서 중요한 가정으로 쓰이는 iid (independent identically distributed, 독립 항등 분포)가 의미하는 바를 순서대로 연결하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "분석을 위해 여러 개의 랜덤 변수(확률 변수)가 존재할 때,",
+      "각 변수들의 사건이 서로에게 영향을 주지 않는 '독립(independent)' 관계이며,",
+      "동시에 모든 변수가 완전히 같은 형태의 '확률 분포(identically distributed)'를 가집니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d3_024",
+    "day": 1,
+    "concept": "상관계수",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "선형 관계 지표... 삐빅. 한계가 없는 공분산을 길들일 지표가 필요하다... 무엇을 골라야 하지?",
+      "correct": "정답입니다. 상관계수(Correlation)는 공분산의 단점을 보완하기 위해 범위를 -1에서 1 사이로 표준화하여 선형 관계의 크기를 쉽게 파악하게 해줍니다.",
+      "wrong": "틀렸습니다. 공분산(Covariance)은 그 값의 범위를 한정 짓기 어렵다는 단점 자체가 있는 지표입니다."
+    },
+    "question": "두 변수 간의 선형적인 관련성을 알아볼 때, 값의 범위를 한정 짓기 어렵다는 공분산(Covariance)의 단점을 보완하기 위해 범위 값을 -1에서 1 사이로 표준화한 지표는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "공분산 (Covariance)",
+      "상관계수 (Correlation)"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d3_025",
+    "day": 1,
+    "concept": "선형 변환",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "공간 이동 로직... 선형성이 유지된 채 벡터가 바뀐다... 이 연산을 뭐라 부르지? 대답해라.",
+      "correct": "맞습니다! 선형 변환(Linear Transformation)은 선형 결합의 성질을 유지한 채 벡터 공간을 다른 공간으로 이동시키는 함수(연산)입니다.",
+      "wrong": "오답입니다. 사영(Projection)은 벡터를 특정 공간 위로 투영하는 것에 초점이 맞춰져 있습니다."
+    },
+    "question": "선형대수학에서 선형 결합(Linear combination)을 유지하면서 어떤 벡터에 특정 연산을 가해 다른 벡터로 바꾸는 함수를 의미하는 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "사영 (Projection)",
+      "선형 변환 (Linear Transformation)"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d3_026",
+    "day": 1,
+    "concept": "차원의 저주",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "피처 과다 추가... 메모리 누수 발생. 지지직. 쓸데없이 차원만 커져 성능이 떨어지는 이 무서운 현상은... 뭐지?",
+      "correct": "정답입니다! 차원의 저주는 데이터 양은 한정적인데 차원(변수)만 늘어나 빈 공간이 생기고 모델 성능이 오히려 떨어지는 현상입니다.",
+      "wrong": "틀렸습니다. 과적합도 문제이긴 하지만, '차원 증가에 따른 성능 하락'을 지칭하는 용어는 따로 있습니다."
+    },
+    "question": "한정적인 데이터를 가진 상태에서 변수(차원)만 늘어날 경우, 의미 없는 값들을 계산하게 되어 KNN 분류기 등에서 오히려 성능이 하락하는 문제를 무엇이라고 합니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "과적합 (Overfitting)",
+      "차원의 저주 (Curse of Dimensionality)"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d3_027",
+    "day": 1,
+    "concept": "랜덤 포레스트",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "나무가 모여 숲을 이룬다... 삐빅. 의사결정나무의 단점을 앙상블로 보완한 이 강력한 모델의 이름은... 선택해라.",
+      "correct": "정확해요! 여러 개의 의사결정나무 모델을 배깅 기법으로 만들어 결과를 합치는 알고리즘을 랜덤 포레스트(Random Forest)라고 합니다.",
+      "wrong": "오답입니다. 그래디언트 부스트는 배깅이 아니라 순차적인 부스팅(Boosting) 방식을 사용합니다."
+    },
+    "question": "배깅(Bagging) 기법의 하위 개념으로, 추출된 표본들의 feature를 무작위로 다르게 선정하여 다수의 의사결정나무(Decision Tree) 분류기를 생성하고 그 결과를 합치는 앙상블 모델은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "랜덤 포레스트 (Random Forest)",
+      "그래디언트 부스트 (Gradient Boost)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d3_028",
+    "day": 1,
+    "concept": "확률적 경사 하강법",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "전체 데이터 계산... 너무 느리다. 속도 개선이 필요해. 삐-. 적은 데이터로 재빠르게 업데이트하는 기법을... 골라.",
+      "correct": "맞습니다! SGD(확률적 경사 하강법)는 전체 데이터가 아닌 임의로 선택한 적은 데이터로 기울기를 구하므로 계산 속도가 매우 빠릅니다.",
+      "wrong": "틀렸습니다. Batch Gradient Descent(BGD)는 한 번 업데이트할 때 전체 데이터를 다 사용하므로 매우 느립니다."
+    },
+    "question": "경사하강법 중 BGD(Batch Gradient Descent)의 계산이 오래 걸리는 단점을 개선하기 위해, 임의로 선택한 적은 데이터에 대해서만 기울기를 계산하여 빠르게 모델을 업데이트하는 방법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "BGD (Batch Gradient Descent)",
+      "SGD (Stochastic Gradient Descent)"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d3_029",
+    "day": 1,
+    "concept": "RMSProp",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "학습률 소멸 에러... Adagrad 한계 도달. 삐빅. G값이 무한히 커져서 학습이 멈추는 걸 막아낸 옵티마이저를... 찾아라.",
+      "correct": "정답입니다. RMSProp은 Adagrad의 단점(학습률이 계속 작아져 결국 학습이 멈추는 현상)을 해결하기 위해 고안된 속도 조절 최적화 기법입니다.",
+      "wrong": "틀렸습니다. 네스테로프 모멘텀은 속도(학습률) 조절이 아니라 '운동량(관성)'을 제어하는 방법입니다."
+    },
+    "question": "많이 변화한 파라미터의 학습률을 줄이는 Adagrad 옵티마이저에서, 업데이트가 누적될수록 G(i) 값이 무한히 커져 결국 학습이 멈춰버리는 문제를 방지하고자 제안된 기법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "네스테로프 모멘텀 (Nesterov Momentum)",
+      "RMSProp"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d3_030",
+    "day": 1,
+    "concept": "가우시안 MLE",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "분포 추정 모듈... 지지직. 정규분포 환경에서 새로운 레이블을 분류해야 한다. 어떤 통계적 기법을... 써야 하지?",
+      "correct": "완벽합니다! 가우시안(정규) 분포에서 분류(Classification) 작업을 수행할 때는 이전 데이터의 우도(Likelihood)를 최대로 하는 파라미터를 찾는 MLE를 사용합니다.",
+      "wrong": "오답입니다. 표본 분산(Sample Variance)은 단순히 데이터가 퍼진 정도를 잴 뿐, 분류 레이블을 추정하는 핵심 기법은 아닙니다."
+    },
+    "question": "가우시안 분포(정규 분포)를 따르는 데이터 환경에서, 기존에 레이블이 있는 데이터를 기반으로 새로운 데이터의 레이블을 분류(Classification task)하고자 할 때 주로 사용하는 기법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "최우추정법 (MLE, Maximum Likelihood Estimation)",
+      "표본 분산 (Sample Variance)"
+    ],
+    "correct": 0
+  }
+]
+
+```

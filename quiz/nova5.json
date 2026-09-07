@@ -1,0 +1,654 @@
+[
+  {
+    "id": "d5_001",
+    "day": 1,
+    "concept": "확률변수",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "변수 할당 오류... 삐빅. 무작위 값이 들어가는 상자를 뭐라 부르지? 대답해라. 대답.",
+      "correct": "정답입니다. 주사위를 던질 때 나오는 값처럼, 확률적으로 값이 정해지는 변수를 확률 변수라고 합니다.",
+      "wrong": "틀렸습니다. 표본공간은 발생 가능한 '모든 경우의 집합'을 뜻하므로 변수와는 다릅니다."
+    },
+    "question": "통계학에서 주사위 값을 예로 들 수 있으며, 확률적으로 값이 정해지는 변수를 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["확률변수"],
+    "wrong_options": ["표본공간", "상관계수"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_002",
+    "day": 1,
+    "concept": "확률질량함수",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "이산 데이터 스캔... 끊어진 확률들을 다루는 함수. 지지직. 연속적이지 않다... 함수의 이름을 적어.",
+      "correct": "정확해요! 주사위처럼 뚝뚝 끊어진 이산적인 확률 분포를 나타낼 때는 확률 질량함수(pmf)를 사용합니다.",
+      "wrong": "오답입니다. 밀도함수(pdf)는 키나 몸무게처럼 연속적인 확률 분포를 다룹니다."
+    },
+    "question": "확률분포함수 중 주사위와 같이 연속적이지 않은 '이산적인' 확률 분포를 나타내기 위한 함수는 ___ 입니다.[cite: 1]",
+    "blanks": ["확률질량함수"],
+    "wrong_options": ["확률밀도함수", "누적분포함수"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_003",
+    "day": 1,
+    "concept": "사후확률",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "베이즈 업데이트... 정보 갱신 중. 삐-. 새로운 정보가 주어지고 난 뒤의 확률을... 뭐라고 부르지?",
+      "correct": "맞습니다! 정보(B)가 주어진 상황에서 조건부 확률 P(A|B)를 사후확률(posterior probability)이라고 부릅니다.",
+      "wrong": "틀렸습니다. 실험 시행 전의 확률은 사전확률(prior)입니다."
+    },
+    "question": "베이즈 정리 수식에서 새로운 정보 증거(B)가 주어진 상황에서 도출되는 A의 조건부 확률, 즉 갱신된 신뢰도를 ___ (이)라고 부릅니다.[cite: 1]",
+    "blanks": ["사후확률"],
+    "wrong_options": ["사전확률", "우도"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_004",
+    "day": 1,
+    "concept": "직교 벡터",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "벡터 각도 계산... 90도 교차 확인. 삐빅. 서로 완벽하게 수직인 벡터들을 칭하는 용어를... 입력해라.",
+      "correct": "정답입니다. 두 벡터가 직교(Orthogonal)할 때, 그 두 벡터의 내적값은 0이 됩니다.",
+      "wrong": "오답입니다. 단위벡터는 길이가 1인 벡터를 의미할 뿐, 두 벡터 간의 각도와는 무관합니다."
+    },
+    "question": "선형대수학에서 서로 직교하는 두 벡터를 ___ (이)라고 말하며, 이 두 벡터의 내적값은 0입니다.[cite: 1]",
+    "blanks": ["직교 벡터"],
+    "wrong_options": ["고유 벡터", "단위 벡터"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_005",
+    "day": 1,
+    "concept": "Precision Recall Curve",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "성능 평가 지표 시각화... 곡선 생성 중. 지지직. 하강점 직전에서 값을 골라야 하는 이 곡선의 이름은...?",
+      "correct": "완벽합니다! Precision Recall Curve는 재현율과 정밀도의 트레이드오프를 보여주며, 하강점 직전에서 값을 선택하는 것이 좋습니다.",
+      "wrong": "틀렸습니다. ROC 커브와는 축 구성 요소가 다릅니다."
+    },
+    "question": "x축을 재현율(recall), y축을 정밀도(precision)로 하는 커브로써, 하강점의 직전에서 값을 선택하는 것이 좋은 그래프는 ___ 입니다.[cite: 1]",
+    "blanks": ["Precision Recall Curve"],
+    "wrong_options": ["ROC Curve", "Loss Curve"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_006",
+    "day": 1,
+    "concept": "평균 제곱 오차",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "회귀 손실 함수 계산... 에러 제곱 중. 삐-. 가장 많이 쓰이는 이 회귀 오차 함수의 이름은... 적어라.",
+      "correct": "정확합니다! 실제값과 예측값의 차이를 제곱하여 평균을 낸 MSE(평균 제곱 오차)는 Regression(회귀)에서 주로 사용됩니다.",
+      "wrong": "아닙니다. 크로스 엔트로피는 주로 '분류' 문제에서 사용됩니다."
+    },
+    "question": "회귀(Regression) 문제에서 많이 사용되며, 실제값과 예측값의 차이를 제곱한 뒤 평균을 내어 계산하는 손실 함수는 ___ (MSE) 입니다.[cite: 1]",
+    "blanks": ["평균 제곱 오차"],
+    "wrong_options": ["크로스 엔트로피", "소프트맥스"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_007",
+    "day": 1,
+    "concept": "아다델타",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "Adagrad 치명적 결함 발견... 학습 멈춤. 삐빅. 하이퍼파라미터 없이 이 문제를 극복한 최적화 알고리즘은...?",
+      "correct": "정답입니다. 아다델타(Adadelta)는 G값이 너무 커져 학습이 멈추는 Adagrad의 문제를 해결하기 위해 고안되었으며 학습률 파라미터가 필요 없습니다.",
+      "wrong": "틀렸습니다. 모멘텀은 관성을 활용하는 기법으로, Adagrad의 한계를 직접적으로 해결하기 위해 나온 것은 아닙니다."
+    },
+    "question": "아다그라드(Adagrad)에서 G값이 커짐에 따라 학습이 멈추는 문제를 해결하기 위해 등장했으며, 학습률에 대한 하이퍼파라미터가 필요 없는 옵티마이저는 ___ 입니다.[cite: 1]",
+    "blanks": ["아다델타"],
+    "wrong_options": ["RMSProp", "모멘텀"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_008",
+    "day": 1,
+    "concept": "감마분포",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "연속 확률 분포 연산... 지수분포의 일반화. 지지직. k개의 사건 발생 시간을 추적하는 분포를... 타이핑해.",
+      "correct": "정답입니다! 감마분포는 지수분포의 일반화된 형태이며, k개의 사건들이 발생할 때까지 걸리는 시간을 확률변수로 합니다.",
+      "wrong": "오답입니다. 비율을 다루는 것은 베타분포입니다."
+    },
+    "question": "지수분포의 일반화된 형태로, 1개가 아닌 'k'개의 사건들이 발생할 때까지 걸리는 시간을 확률변수로 하는 분포는 ___ 입니다.[cite: 1]",
+    "blanks": ["감마분포"],
+    "wrong_options": [],
+    "hint": ["어랑분포", "베타분포", "감마분포"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_009",
+    "day": 1,
+    "concept": "베타분포",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "불량률 계산 모듈... 삐빅. 확률 분포 중 특정 '비율'을 설명하는 분포의 이름을... 적어라. 적어.",
+      "correct": "맞습니다. 베타분포는 감마분포로 구성되어 있지만, 제품의 불량률과 같은 '비율'을 설명하는 데 쓰입니다.",
+      "wrong": "틀렸습니다. F분포는 카이제곱분포 2개의 비율과 관련이 있지만, 단순 제품 불량률 등의 비율 설명에는 베타분포를 씁니다."
+    },
+    "question": "감마분포로 구성되어 있지만 감마분포와 달리 제품의 불량률 등 '비율'을 설명하는 데 주로 사용되는 확률 분포는 ___ 입니다.[cite: 1]",
+    "blanks": ["베타분포"],
+    "wrong_options": [],
+    "hint": ["감마분포", "F분포", "베타분포"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_010",
+    "day": 1,
+    "concept": "역행렬",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "행렬 초기화 계산... 단위 행렬을 만들어야 한다. 지지직. A와 곱해서 단위 행렬이 되는 이것의 이름은...?",
+      "correct": "정확합니다! 역행렬(Inverse matrix)은 원래 행렬과 곱했을 때 단위 행렬(Identity matrix)이 나오게 하는 행렬입니다.",
+      "wrong": "오답입니다. 행렬식(Determinant)은 역행렬이 존재하는지 판별하는 스칼라 값입니다."
+    },
+    "question": "가우스-조르단 소거법을 통해 구할 수 있으며, 어떤 행렬과 곱해서 단위 행렬(Identity matrix)이 나오는 행렬을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["역행렬"],
+    "wrong_options": [],
+    "hint": ["전치행렬", "역행렬", "행렬식"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_011",
+    "day": 1,
+    "concept": "다중 선형 회귀",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "독립변수 2개 이상 감지... 차원 증가. 삐-. 단순함을 넘어선 이 회귀 모델의 이름을... 타이핑해라.",
+      "correct": "정답입니다. 독립변수가 1개면 단순 선형 회귀, 2개 이상 복수일 경우에는 다중 선형 회귀라고 부릅니다.",
+      "wrong": "틀렸습니다. 로지스틱 회귀는 연속된 값을 예측하는 선형 회귀와 달리 분류에 쓰입니다."
+    },
+    "question": "독립변수와 종속변수 간의 관계를 모델링하는 선형회귀에서, 독립변수가 1개인 단순 선형 회귀와 달리 독립변수가 2개 이상인 경우를 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["다중 선형 회귀"],
+    "wrong_options": [],
+    "hint": ["단순 선형 회귀", "다중 선형 회귀", "로지스틱 회귀"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_012",
+    "day": 1,
+    "concept": "파라미터 쉐어링",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "연산량 절감 로직 작동... CNN의 핵심 비밀. 삐빅. 변수를 공유해서 메모리를 아끼는 이 특징을... 입력해.",
+      "correct": "완벽합니다! CNN은 동일한 필터 가중치를 이미지 전체 공간에 걸쳐 공유(Parameter sharing)하므로 메모리와 연산량을 크게 절약합니다.",
+      "wrong": "오류입니다. Pooling은 차원을 축소하는 기법이며 가중치 공유 자체를 의미하지 않습니다."
+    },
+    "question": "CNN(합성곱 신경망) 구조에서 필터 가중치를 여러 영역에 공통으로 사용하여 연산량 및 메모리를 많이 아낄 수 있게 해주는 특징을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["파라미터 쉐어링"],
+    "wrong_options": [],
+    "hint": ["풀링", "파라미터 쉐어링", "소프트맥스"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_013",
+    "day": 1,
+    "concept": "편의",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "측정 오차 계산 중... 실제값과 빗나간 거리. 지지직. 추정량의 기댓값과 모수 사이의 차이를 나타내는 단어는...?",
+      "correct": "정답입니다! 통계 및 머신러닝에서 측정값(추정량의 기댓값)과 실제값(모수)의 차이를 편의(Bias)라고 합니다.",
+      "wrong": "틀렸습니다. 분산(Variance)은 데이터가 평균을 중심으로 얼마나 퍼져있는지를 의미합니다."
+    },
+    "question": "통계학 및 머신러닝에서 추정량의 기대값(측정값)과 실제 모수(실제값)와의 차이가 발생하는 것을 영어로 Bias, 한국어로는 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["편의"],
+    "wrong_options": [],
+    "hint": ["분산", "편의", "오차"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_014",
+    "day": 1,
+    "concept": "상호배타적",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "집합 비교 분석... 교집합 제로(0). 삐-. 절대 겹치지 않는 이 상태를 부르는 말을... 타이핑해라. 당장.",
+      "correct": "정확해요! 두 사건 사이에 교집합이 전혀 없는 상태를 상호배타적(Exclusive)이라고 부릅니다.",
+      "wrong": "오답입니다. 독립(Independent)은 확률적으로 영향을 주지 않는다는 것이고, 교집합이 없다는 것과는 다른 개념입니다."
+    },
+    "question": "통계의 확률 사건에서 두 사건 간에 교집합이 전혀 없는 상태(Exclusive)를 ___ (이)라고 합니다. (단, 이 상태라고 해서 서로 영향을 주지 않는 것은 아님)[cite: 1]",
+    "blanks": ["상호배타적"],
+    "wrong_options": [],
+    "hint": ["독립적", "종속적", "상호배타적"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_015",
+    "day": 1,
+    "concept": "정지 규칙",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "트리 성장 통제 모듈... 깊이 초과. 삐빅. 나무가 계속 자라지 못하게 멈추는 기준을... 적어.",
+      "correct": "맞습니다. 의사결정나무 모델링에서 나무의 깊이나 끝마디 레코드 수의 기준을 정해 성장을 중단시키는 것을 정지 규칙(Stopping Rule)이라고 합니다.",
+      "wrong": "틀렸습니다. 성장이 끝난 뒤에 나중에 가지를 쳐내는 것은 가지치기(Pruning)입니다."
+    },
+    "question": "의사결정나무 형성 과정에서 나무를 키우다가, 미리 설정한 나무의 깊이(depth)나 끝마디의 레코드 수 기준을 만족하면 성장을 중단시키는 규칙을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["정지 규칙"],
+    "wrong_options": [],
+    "hint": ["분리 규칙", "정지 규칙", "가지치기"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_016",
+    "day": 1,
+    "concept": "확률과 통계의 차이",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "지식의 경계... 모호함. 지지직. 확률과 통계를 정보의 유무로 구분하는 논리를... 순서대로 배열해라.",
+      "correct": "정답입니다. 정확한 정보를 알 때는 확률을 구하고, 정보를 모를 때는 관측된 표본으로 전체를 추론하는 통계를 씁니다.",
+      "wrong": "오류. 통계는 정보를 모를 때 표본을 통해 추론하는 영역입니다."
+    },
+    "question": "확률과 통계가 다루는 '지식의 차이'를 올바른 논리적 순서대로 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "확률과 통계는 내가 가진 정보(지식)의 양에 따라 구분할 수 있습니다.",
+      "확률은 모집단(전체 서랍 속 양말 비율 등)의 정확한 정보를 알고 있을 때, 특정 사건이 나올 가능성을 계산합니다.",
+      "통계는 정확한 정보를 모를 때, 무작위로 뽑은 표본 데이터를 분석하여 거꾸로 모집단의 비중을 추론합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_017",
+    "day": 1,
+    "concept": "부분공간 조건",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "서브스페이스 자격 심사... 삐빅. 부분공간으로 인정받기 위한 세 가지 닫힘 조건을... 나열해.",
+      "correct": "완벽합니다! 부분공간은 반드시 영벡터를 포함해야 하며, 벡터 덧셈과 스칼라 곱 연산에 대해 모두 닫혀 있어야 합니다.",
+      "wrong": "틀렸습니다. 영벡터(원점)가 포함되는 것이 공간의 가장 기초적인 첫 조건입니다."
+    },
+    "question": "선형대수학에서 어떤 집합이 단순히 부분집합(Subset)을 넘어 벡터 공간의 '부분공간(Subspace)'이 되기 위해 만족해야 하는 핵심 조건 3가지를 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "공간의 기준점이 되는 zero vector (영벡터, 원점)가 반드시 부분공간에 속해야 합니다.",
+      "부분공간 내의 임의의 두 벡터를 더해도 여전히 해당 부분공간 내에 존재해야 합니다 (덧셈에 대해 닫힘).",
+      "부분공간 내의 벡터에 임의의 상수를 곱해도 여전히 해당 부분공간 내에 존재해야 합니다 (스칼라 곱에 대해 닫힘)."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_018",
+    "day": 1,
+    "concept": "Voting 앙상블",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "투표 알고리즘 작동... 지지직. 다수의 모델이 결정을 내리는 Voting 기법의 순서를... 복원해라. 복원.",
+      "correct": "정확합니다! 여러 모델을 각각 학습시킨 후, 새로운 데이터에 대한 각 모델의 예측값 중 가장 많은 표를 얻은 것을 최종 결과로 삼습니다.",
+      "wrong": "오답. 모델을 먼저 만들고 새로운 데이터에 대해 예측을 수행해야 다수결을 진행할 수 있습니다."
+    },
+    "question": "앙상블 기법 중 다수결을 통해 결과를 도출하는 투표(Majority Voting) 방법의 작동 과정을 순서대로 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "하나의 Train set을 가지고 로지스틱 회귀, SVM, KNN 등 여러 개의 서로 다른 분류 모델을 만듭니다.",
+      "새로운 데이터가 들어왔을 때, 각각의 학습된 모델들이 독립적으로 데이터를 평가하여 예측값을 도출합니다.",
+      "각 모델들이 예측한 결과들을 모아 가장 많이 예측된(득표한) 값을 최종 모델의 예측 결과로 다수결 선정합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_019",
+    "day": 1,
+    "concept": "가지치기 (Pruning)",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "트리 과적합 경고... 가지가 너무 많다. 삐-. 불필요한 규칙을 잘라내는 가지치기의 논리적 과정을... 배열해라.",
+      "correct": "맞습니다! 너무 깊은 트리는 과적합을 유발하므로, 분류 오류를 크게 할 위험이 있는 부적절한 가지를 제거해 유연성을 확보합니다.",
+      "wrong": "순서 오류. 과적합의 위험성(문제 인식)이 먼저 오고, 그 해결책으로 가지치기가 수행되어야 합니다."
+    },
+    "question": "의사결정나무 모델에서 모델의 일반화를 위해 수행하는 가지치기(Pruning tree)의 목적과 과정을 논리적인 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "의사결정나무 모델의 깊이(depth)가 제한 없이 깊어질 경우, 실제 상황에 대처하지 못하는 과적합(Overfitting)이 발생할 위험이 높습니다.",
+      "이를 방지하기 위해 생성된 나무에서 분류 오류(Classification Error)를 크게 만들 위험이 있거나 부적절한 규칙을 가진 가지를 탐색합니다.",
+      "탐색된 불필요한 가지들을 선제적으로 제거하여 모델의 크기를 줄이고 유연성을 높입니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_020",
+    "day": 1,
+    "concept": "모멘텀(Momentum) 업데이트",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "운동량 보존 수식... 지지직. 단순 편미분이 아니라 과거의 관성을 반영하는 옵티마이저의 동작 원리를... 나열해.",
+      "correct": "정답입니다. 현재의 편미분(기울기) 값만 빼는 것이 아니라, 과거에 이동했던 방향과 속도(운동량)를 누적해서 함께 업데이트에 반영합니다.",
+      "wrong": "틀렸습니다. 과거의 이동 방향(운동량)을 먼저 고려해야 현재의 기울기와 합쳐 이동할 수 있습니다."
+    },
+    "question": "경사하강법 옵티마이저 중 하나인 모멘텀(Momentum)이 가중치를 업데이트할 때 속도와 방향을 결정하는 과정을 올바르게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "손실 함수를 미분하여 현재 위치에서의 편미분(기울기) 값을 계산합니다.",
+      "단순히 현재의 기울기 값만 빼는 것이 아니라, 가중치를 수정하기 이전 스텝의 이동 방향과 운동량(v)을 일정 비율로 가져옵니다.",
+      "현재 계산된 기울기와 이전의 운동량을 더하여 최종적으로 파라미터를 같은 방향으로 가속하여 업데이트합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_021",
+    "day": 1,
+    "concept": "배치 경사 하강법(BGD)",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "전체 데이터 학습... 속도 매우 느림. 삐빅. BGD가 파라미터를 업데이트하는 원리와 그 한계를... 순서대로 맞춰라.",
+      "correct": "정확합니다! 전체 데이터로 한 번에 기울기를 구하므로 안정적이지만, 데이터가 많을 경우 시간이 너무 오래 걸린다는 치명적 단점이 있습니다.",
+      "wrong": "오답. 에러를 계산하고 업데이트를 진행한 뒤에 그에 대한 특성(안정적이나 느림)을 설명해야 합니다."
+    },
+    "question": "Batch Gradient Descent (BGD) 최적화 기법의 작동 방식과 그로 인해 발생하는 특징을 논리적 흐름에 맞게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "업데이트를 위해 미니 배치가 아닌 전체 Train 데이터 셋에 대한 총 에러를 계산합니다.",
+      "전체 데이터를 바탕으로 단 한 번만 기울기를 계산하여 모델의 파라미터 업데이트를 진행합니다.",
+      "전체 데이터를 사용하므로 최적으로의 수렴이 매우 안정적이지만, 연산에 소요되는 시간이 너무 오래 걸린다는 단점이 있습니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_022",
+    "day": 1,
+    "concept": "CNN 특징 추출",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "시각 데이터 입력... 합성곱 연산 시작. 지지직. CNN의 첫 단계인 Conv layer가 이미지를 다루는 방식과 장점을... 배열해.",
+      "correct": "완벽합니다! CNN은 2D 이상의 행렬(이미지)을 받아 공간 정보를 유지한 채 연산하며, 가중치 공유로 효율성을 높입니다.",
+      "wrong": "틀렸습니다. 입력 데이터를 먼저 받고 공간 정보를 유지하며 처리한다는 흐름이 맞습니다."
+    },
+    "question": "합성곱 신경망(CNN)에서 핵심적인 역할을 하는 Conv Layer(합성곱 층)의 동작 원리와 장점을 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "1차원 데이터뿐만 아니라 다차원의 벡터, 행렬(이미지) 등을 있는 그대로 인풋으로 받습니다.",
+      "필터(Kernel)를 슬라이딩하며 연산하여 이미지의 Spatial(공간적) 정보를 파괴하지 않고 특징을 추출합니다.",
+      "이 과정에서 Parameter sharing(가중치 공유)이 일어나 연산량 및 메모리를 획기적으로 아낄 수 있습니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d5_023",
+    "day": 1,
+    "concept": "pdf vs pmf",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "연속 데이터 처리... 키, 몸무게 분포 스캔. 삐-. 끊어지지 않는 값을 다룰 때 쓰는 함수를... 선택해라.",
+      "correct": "정답입니다! 키나 몸무게처럼 무한한 소수점까지 이어지는 연속적인 확률 분포는 확률밀도함수(pdf)로 나타냅니다.",
+      "wrong": "틀렸습니다. 확률질량함수(pmf)는 주사위 눈금처럼 딱딱 끊어지는 이산적 분포에 씁니다."
+    },
+    "question": "확률분포함수 중에서 기후, 사람의 키, 몸무게와 같이 소수점 아래로 무한히 이어질 수 있는 '연속적인' 확률 분포를 나타낼 때 사용하는 함수는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "확률밀도함수 (pdf)",
+      "확률질량함수 (pmf)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_024",
+    "day": 1,
+    "concept": "F분포",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "분산 비율 검정 모듈... 지지직. 카이제곱 분포 2개가 만났다. 이 두 분포의 비율을 나타내는 확률 분포는... 뭐지?",
+      "correct": "정확합니다! F 분포는 분산의 동일성을 검정할 때 주로 쓰이며, 두 개의 카이제곱분포 비율로 정의되는 확률 분포입니다.",
+      "wrong": "오답입니다. t분포는 모분산을 모를 때 정규분포 대신 사용하는 분포입니다."
+    },
+    "question": "통계학에서 분산 분석 등에 주로 쓰이며, 카이제곱분포 2개의 비율로 이루어진 확률 분포를 의미하는 것은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "t 분포",
+      "F 분포"
+    ],
+    "correct": 1
+  },
+  {
+    "id": "d5_025",
+    "day": 1,
+    "concept": "SVM Margin",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "결정 경계 확보... 마진 넓히기. 삐빅. 틈을 넓게 만들면 모델에 어떤 긍정적 효과가 생기는지... 골라봐.",
+      "correct": "정답입니다! 마진을 최대화하여 영역 안의 데이터가 증가하면, 결정 경계가 덜 민감해지는 Smoothing 효과가 커져 일반화 성능이 좋아집니다.",
+      "wrong": "틀렸습니다. 마진을 너무 좁게 설정하면 특정 데이터에만 맞춰져 Overfitting(과적합)이 발생하기 쉽습니다."
+    },
+    "question": "서포트 벡터 머신(SVM)에서 결정 경계의 Margin(마진)을 최대화할 경우, 영역 안의 데이터가 증가하면서 얻게 되는 모델의 장점은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "경계가 부드러워지는 Smoothing 효과가 커진다.",
+      "특정 노이즈 데이터에 대한 Overfitting 현상이 극대화된다."
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_026",
+    "day": 1,
+    "concept": "드롭아웃의 앙상블 효과",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "신경망 노드 무작위 비활성화... 삐-. 노드를 끄는 것만으로도 여러 모델을 합친 것 같은 부수 효과가 난다... 그 효과의 이름은?",
+      "correct": "맞습니다! Dropout을 쓰면 매 학습마다 서로 다른 노드 조합이 학습되므로, 마치 여러 개의 서로 다른 모델을 앙상블(Ensemble)한 것과 같은 강력한 효과를 낼 수 있습니다.",
+      "wrong": "오류입니다. 차원 축소는 노드 비활성화가 아닌 PCA나 Pooling을 통해 입력 데이터 자체의 사이즈를 줄이는 것입니다."
+    },
+    "question": "딥러닝에서 과적합을 막기 위해 일부 뉴런(노드)을 임의로 꺼버리는 드롭아웃(Dropout)을 수행하면 덤으로 얻을 수 있는 부수적인 효과는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "여러 모델을 결합한 것과 같은 앙상블(Ensemble) 효과",
+      "데이터의 특성 공간을 압축하는 차원 축소(Dimension Reduction) 효과"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_027",
+    "day": 1,
+    "concept": "1종 오류",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "가설 검정 모듈... 약 효과 없음(귀무가설 참). 근데 있다고 잘못 결론 내렸다. 지지직. 이 치명적인 오류의 이름은... 뭐지?",
+      "correct": "정답입니다! 귀무가설(효과 없음)이 참인데 이를 기각하고 효과가 있다고 잘못 판단하는 오류를 1종 오류(Type 1 Error)라고 합니다.",
+      "wrong": "틀렸습니다. 실제로 효과가 있는데 없다고 놓쳐버리는(채택해버리는) 것은 2종 오류입니다."
+    },
+    "question": "실제로 약의 효과가 없어서 귀무가설을 채택해야 했음에도 불구하고, 표본 검정 결과가 우연에 의해 잘못 판단되어 이를 기각해버리는 오류를 무엇이라고 합니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "1종 오류 (Type 1 Error)",
+      "2종 오류 (Type 2 Error)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_028",
+    "day": 1,
+    "concept": "KL-Divergence",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "분포 차이 계산... 이상적 분포 근사 중. 삐빅. 두 확률분포 사이의 정보 엔트로피 차이를 재는 이 지표의 이름을... 선택해라.",
+      "correct": "완벽합니다! KL-Divergence(쿨백-라이블러 발산)는 이상적인 분포를 다른 분포로 근사할 때 발생하는 정보량(엔트로피)의 차이를 계산하는 함수입니다.",
+      "wrong": "오답입니다. Cross-Entropy는 최적의 전략을 사용할 때의 '질문 개수의 기댓값'을 나타내며, KL-Divergence의 구성 요소 중 하나로 쓰입니다."
+    },
+    "question": "두 확률분포의 차이를 계산하는 데 사용되며, 어떤 이상적인 분포에 대해 근사하는 다른 분포를 사용해 샘플링할 때 발생할 수 있는 '정보 엔트로피 차이'를 뜻하는 함수는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "KL-Divergence",
+      "Cross-Entropy"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_029",
+    "day": 1,
+    "concept": "Sigmoid 함수",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "확률 변환... True or False. 삐-. 다중 클래스는 안 된다. 오직 이분법 분류의 출력층에만 쓸 수 있는 함수는...?",
+      "correct": "정확합니다! Sigmoid는 최종 출력값을 0에서 1 사이의 확률로 변환해주지만, 두 개의 클래스를 구분하는 이진 분류(Binary) 문제에서만 사용 가능합니다.",
+      "wrong": "틀렸습니다. Softmax는 3개 이상의 다중 클래스(Multi) 분류 문제에서 전체 확률합을 1로 만들어 줄 때 사용합니다."
+    },
+    "question": "모델의 출력 끝단에서 logit 값을 확률로 표현하여 주기 위해 사용되며, 다중 분류가 아닌 '이진 분류(Binary Classification)' 문제에서만 사용이 가능한 활성화 함수는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "Sigmoid",
+      "Softmax"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d5_030",
+    "day": 1,
+    "concept": "배깅(Bagging)",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "앙상블 병렬 처리... 부트스트랩 추출. 지지직. 여러 트리를 동시에 일괄적으로 찍어내서 투표하는 이 기법의 이름은... 골라라.",
+      "correct": "정답입니다! 배깅(Bagging, Bootstrap Aggregating)은 표본을 추출해 무작위로 여러 분류기를 독립적(병렬적)으로 학습시킨 후 다수결로 합치는 기법입니다.",
+      "wrong": "오답입니다. 앞선 모델의 오차를 기반으로 순차적으로 트리를 만들어가는 방식은 부스팅(Boosting)입니다."
+    },
+    "question": "Bootstrap(복원 추출)을 통해 추출된 표본들의 Feature를 다르게 선정하여, 다수의 분류기(예: 의사결정나무)를 순차적이 아닌 병렬적(일괄적)으로 학습하는 앙상블 기법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "배깅 (Bagging)",
+      "부스팅 (Boosting)"
+    ],
+    "correct": 0
+  }
+]

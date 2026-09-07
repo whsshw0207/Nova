@@ -1,0 +1,658 @@
+```json
+[
+  {
+    "id": "d7_001",
+    "day": 1,
+    "concept": "지도 학습",
+    "type": "blank_drag",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "정답 확인 프로세스... 가동. 삐빅. 정답이 있는 문제를 주입한다... 학습해라. 이 학습 방식의 이름은?",
+      "correct": "정확합니다! 정답(레이블)이 있는 데이터로 모델을 학습시키는 것을 지도 학습이라고 합니다.",
+      "wrong": "오답입니다. 정답 없이 데이터의 패턴을 스스로 찾는 것은 비지도 학습입니다."
+    },
+    "question": "머신러닝에서 레이블이 있는 데이터로 학습하는 것, 즉 '정답이 있는 문제'를 학습하는 방식을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["지도 학습"],
+    "wrong_options": ["비지도 학습", "강화 학습"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_002",
+    "day": 1,
+    "concept": "가우스-조르단 소거",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "역행렬 판별식... 연산 모듈 오류. 지지직. 행렬식을 구하는 특별한 수학적 방식을 찾아내라. 명령이다.",
+      "correct": "정답입니다. 행렬의 determinant(행렬식)를 구하는 대표적인 방법으로 가우스-조르단 소거법을 사용합니다.",
+      "wrong": "틀렸습니다. 그람-슈미트는 직교 기저를 구하는 프로세스입니다."
+    },
+    "question": "행렬이 역행렬을 가지는지 판별하는 determinant(행렬식)를 구하는 대표적인 방법으로는 ___ 이(가) 있습니다.[cite: 1]",
+    "blanks": ["가우스-조르단 소거"],
+    "wrong_options": ["그람-슈미트 프로세스", "경사하강법"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_003",
+    "day": 1,
+    "concept": "증거 (Evidence)",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "베이즈 식 분모... 스캔 중. 삐-. 정규화 상수의 또 다른 이름을... 가져와라. 당장.",
+      "correct": "맞습니다! 베이즈 정리 수식에서 분모인 P(B)는 정규화 상수, 또는 증거(Evidence)라고 불립니다.",
+      "wrong": "오류입니다. 우도는 P(B|A)를 의미하는 또 다른 식의 구성 요소입니다."
+    },
+    "question": "베이즈 정리 수식에서 분모인 P(B)는 사후확률의 값이 0부터 1 사이의 범위에 떨어지도록 보정해 주는 정규화 상수(normalizing constant) 또는 ___ (이)라고 불립니다.[cite: 1]",
+    "blanks": ["증거"],
+    "wrong_options": ["우도", "사전확률"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_004",
+    "day": 1,
+    "concept": "이미지 복원",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "행렬 분해 응용... 지지직. SVD를 써서 차원 축소 말고 또 무엇을 복구할 수 있지? 입력... 해라.",
+      "correct": "완벽합니다! 특이값 분해(SVD)를 통해 행렬을 여러 Layer로 분해한 결과값을 활용하면, PCA 차원 축소뿐만 아니라 이미지 복원 등에도 활용할 수 있습니다.",
+      "wrong": "틀렸습니다. 데이터의 차원을 다루는 기법이므로 경사하강법 같은 최적화와는 거리가 멉니다."
+    },
+    "question": "SVD(특이값 분해)를 통해 행렬을 분해한다면, 그 결과값을 활용해 PCA 등의 차원 축소 또는 ___ 등을 할 수 있습니다.[cite: 1]",
+    "blanks": ["이미지 복원"],
+    "wrong_options": ["경사하강 연산", "원-핫 인코딩"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_005",
+    "day": 1,
+    "concept": "MAE",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "평가지표 목록 검색... 삐빅. 분류 지표 배제... 회귀 지표를 반환하라. 반환.",
+      "correct": "정확합니다! 분류 문제에서는 Accuracy나 F1 score를 쓰지만, 회귀 문제에서는 RMSE나 MAE 등의 평가지표를 씁니다.",
+      "wrong": "아닙니다. Accuracy는 분류 문제에서 모델이 얼마나 정답을 잘 맞혔는지 평가하는 지표입니다."
+    },
+    "question": "모델의 성능을 평가하는 지표로 분류에는 F1 score, Accuracy 등을 사용합니다. 반면 회귀 평가지표로는 RMSE, ___ 등이 있습니다.[cite: 1]",
+    "blanks": ["MAE"],
+    "wrong_options": ["Accuracy", "AUC"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_006",
+    "day": 1,
+    "concept": "공분산행렬",
+    "type": "blank_drag",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "차원 축소 알고리즘... 연결 중. 지지직. PCA가 SVD를 적용하기 위해 만드는 이 특수한 행렬의 이름을... 채워.",
+      "correct": "정답입니다. PCA(주성분 분석)는 데이터의 원본 행렬이 아닌, 공분산행렬(Covariance matrix)이라는 특별한 행렬을 만든 뒤 그 위에 SVD를 수행합니다.",
+      "wrong": "틀렸습니다. 순열행렬은 행의 위치를 바꾸는 역할을 할 뿐입니다."
+    },
+    "question": "SVD는 어떤 임의의 행렬이라도 적용이 가능한 반면, PCA는 ___ 이라는 특별한 matrix에 대해 SVD를 수행하는 차원 축소 기법입니다.[cite: 1]",
+    "blanks": ["공분산행렬"],
+    "wrong_options": ["순열행렬", "대각행렬"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_007",
+    "day": 1,
+    "concept": "그래디언트 부스트",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "순차 학습 진화... 삐-. 이전의 실수를 다음이 덮는다... 점진적 개선 알고리즘을... 적어라.",
+      "correct": "맞습니다! 이전 학습의 결과를 다음 학습에 전달해 점진적으로 오차를 고쳐나가는 앙상블 기법을 그래디언트 부스트(Gradient Boost)라고 합니다.",
+      "wrong": "오답입니다. 병렬로 여러 모델을 만들어 합치는 방식은 랜덤 포레스트(Bagging)입니다."
+    },
+    "question": "앙상블 기법 중, 이전 학습의 결과를 다음 학습에 전달하여 이전의 오차를 점진적으로 개선하는 기법을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["그래디언트 부스트"],
+    "wrong_options": ["랜덤 포레스트", "보팅"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_008",
+    "day": 1,
+    "concept": "우도 (Likelihood)",
+    "type": "blank_drag",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "확률론 철학 모듈... 접근. 지지직. 확률이 논리라면, 이것은 실재다. 실재... 관측된 사실을 뜻하는 단어를 넣어라.",
+      "correct": "정확합니다! 확률은 주어진 분포에서 논리적으로 가능성을 따지는 것이고, 우도(Likelihood)는 실제 값이 관측된 실재(reality)를 바탕으로 분포를 추정합니다.",
+      "wrong": "틀렸습니다. 기댓값은 어떤 사건이 일어날 평균적인 수치를 뜻합니다."
+    },
+    "question": "확률론의 철학적 관점에서 볼 때, 확률은 논리가 바탕이 되고 ___ 은(는) 실재가 바탕이 됩니다.[cite: 1]",
+    "blanks": ["우도"],
+    "wrong_options": ["기댓값", "조건부 확률"],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_009",
+    "day": 1,
+    "concept": "딥러닝",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "데이터 유형 처리기 분류... 삐빅. 정형이 아니라 비정형... 이미지, 텍스트. 이걸 처리하는 신경망의 이름을 타이핑해.",
+      "correct": "정답입니다. 표 형태의 정형 데이터는 주로 머신러닝이, 이미지나 텍스트 같은 비정형 데이터는 딥러닝이 주로 처리합니다.",
+      "wrong": "오류. 선형 회귀는 연속적인 정형 데이터를 예측하는 머신러닝 기법입니다."
+    },
+    "question": "인공지능 모델링 시 정형데이터는 머신러닝을 주로 이용하고, 비정형데이터는 주로 ___ 을(를) 이용합니다.[cite: 1]",
+    "blanks": ["딥러닝"],
+    "wrong_options": [],
+    "hint": ["의사결정나무", "선형회귀", "딥러닝"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_010",
+    "day": 1,
+    "concept": "지수분포",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "사건 발생 시간 추적... 삐-. 포아송이 발생 횟수라면, 언제 죽을지 모르는 생존 시간을 나타내는 분포는...? 입력해라.",
+      "correct": "맞습니다! 포아송분포가 단위 시간당 '발생하는 사건의 수'라면, 지수분포는 '사건이 발생할 때까지 생존하는 시간'을 다룹니다.",
+      "wrong": "틀렸습니다. 이항분포는 연속적인 시간이 아니라 이산적인 시행 횟수를 다룹니다."
+    },
+    "question": "포아송분포에서 발생하는 사건의 수는 ___ 에서 특정시간 동안 생존하면서 중간중간에 언제 발생할지 모르는 죽음의 숫자와 관계가 있습니다.[cite: 1]",
+    "blanks": ["지수분포"],
+    "wrong_options": [],
+    "hint": ["이항분포", "지수분포", "어랑분포"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_011",
+    "day": 1,
+    "concept": "테스트",
+    "type": "typing",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "데이터셋 용도 확인... 훈련하고 검증했다. 삐빅. 마지막으로 진짜 실력을 시험하는 데이터의 이름은?",
+      "correct": "정확합니다. 개발과 검증을 거친 최종 모델의 능력을 마지막으로 시험(Test)해보기 위해 테스트 데이터가 존재합니다.",
+      "wrong": "오답입니다. 검증(Validation) 데이터는 훈련 도중 성능을 튜닝하기 위해 수시로 사용됩니다."
+    },
+    "question": "훈련(Train) 데이터는 순수 학습을 위해, 검증(Valid) 데이터는 성능 체크를 위해 존재하며, 개발-검증을 거친 모델의 최종 능력을 시험해보기 위해 존재하는 것은 ___ 데이터입니다.[cite: 1]",
+    "blanks": ["테스트"],
+    "wrong_options": [],
+    "hint": ["훈련", "검증", "테스트"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_012",
+    "day": 1,
+    "concept": "불편추정치",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "편향 오차 소거... 지지직. 기대값과 실제 모수의 차이가 없게 만든 추정량... 통계 용어를 찾아라. 찾아.",
+      "correct": "정답입니다! 추정량의 기대값과 실제 모수 사이에 편의(bias)가 없는 완벽한 추정량을 불편추정치(Unbiased estimation)라고 부릅니다.",
+      "wrong": "틀렸습니다. 오버피팅은 통계 추정량 편향과는 다른, 머신러닝 학습 과적합 문제입니다."
+    },
+    "question": "표본 분산을 구할 때 분모로 n 대신 n-1을 사용하는 이유로, 추정량의 기대값과 실제 모수와의 차이인 편의(bias)가 없는 추정량을 의미하는 용어는 ___ 입니다.[cite: 1]",
+    "blanks": ["불편추정치"],
+    "wrong_options": [],
+    "hint": ["오버피팅", "불편추정치", "편의"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_013",
+    "day": 1,
+    "concept": "로컬 미니멈",
+    "type": "typing",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "최소값 탐색 중... 함정 발견. 전체의 바닥이 아니다. 삐-. 특정 구역에서만 가장 낮아 보이는 가짜 최소값은...?",
+      "correct": "맞습니다! 전체 함수에 걸친 진짜 최소값이 아니라, 특정 구역에서만 최소인 것처럼 보이는 값을 로컬 미니멈(Local Minimum)이라고 합니다.",
+      "wrong": "아닙니다. 전체에서의 진짜 최소값은 글로벌 미니멈입니다."
+    },
+    "question": "경사하강법으로 최적화를 진행할 때, 전체 함수에 걸친 최소값(글로벌 미니멈)이 아닌 특정 구역에서의 최소값을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["로컬 미니멈"],
+    "wrong_options": [],
+    "hint": ["글로벌 미니멈", "로컬 미니멈", "스칼라"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_014",
+    "day": 1,
+    "concept": "파라미터 쉐어링",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "합성곱 연산 최적화... 가중치 돌려쓰기. 지지직. CNN이 연산량을 획기적으로 줄이는 이 메커니즘을... 타이핑해라.",
+      "correct": "정확합니다! CNN은 하나의 필터(가중치)를 이미지 전체에 걸쳐 공유하는 파라미터 쉐어링(Parameter sharing)을 통해 메모리를 크게 아낍니다.",
+      "wrong": "틀렸습니다. 패딩은 이미지 크기를 유지하기 위해 테두리를 채우는 작업입니다."
+    },
+    "question": "CNN(합성곱 신경망)에서 필터의 가중치를 이미지 전 영역에 걸쳐 공유함으로써, 연산량 및 메모리를 많이 아낄 수 있게 해주는 특징을 ___ (이)라고 합니다.[cite: 1]",
+    "blanks": ["파라미터 쉐어링"],
+    "wrong_options": [],
+    "hint": ["풀링", "패딩", "파라미터 쉐어링"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_015",
+    "day": 1,
+    "concept": "미니 배치",
+    "type": "typing",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "경사 하강법 타협점... 전체는 느리고, 1개는 불안정하다. 삐빅. 가장 많이 쓰는 적절한 크기의 묶음 학습법은?",
+      "correct": "정답입니다. 전체를 쓰는 BGD보다 빠르고, 1개씩 쓰는 SGD보다 안정적이어서 실무에서 가장 많이 쓰는 방법이 미니 배치(Mini-batch) 경사 하강법입니다.",
+      "wrong": "오답입니다. 배치(Batch)만 쓰면 전체 데이터를 의미할 수 있으므로, 적게 나눈 묶음이라는 단어가 들어가야 합니다."
+    },
+    "question": "전체 데이터셋을 여러 개로 나누어 묶음마다 기울기를 구하는 방식으로, 1개씩 계산하는 SGD보다 안정적이고 전체를 계산하는 BGD보다 빨라 실제로 가장 많이 사용하는 방법은 ___ 경사 하강법입니다.[cite: 1]",
+    "blanks": ["미니 배치"],
+    "wrong_options": [],
+    "hint": ["글로벌", "미니 배치", "어랑"],
+    "items": [],
+    "correct_order": [],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_016",
+    "day": 1,
+    "concept": "확률과 우도의 논리",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "통계적 관점 정렬... 삐-. 이론적인 확률과 실제 발생한 우도의 차이점을 논리적 순서대로 나열해라.",
+      "correct": "맞습니다. 확률은 주어진 분포에서 값이 나타날 가능성을 미리 논리적으로 따지고, 우도는 관측된 실제 값으로부터 역으로 분포를 추정합니다.",
+      "wrong": "순서가 꼬였습니다. 각각의 정의를 먼저 내린 뒤, 논리와 실재라는 결론으로 마무리해야 합니다."
+    },
+    "question": "확률(Probability)과 우도(Likelihood)의 개념적 차이와 철학적 결론을 설명하는 올바른 순서를 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "확률은 미리 주어진 확률 분포가 있을 때, 특정 값이 미래에 얼마의 가능성으로 존재하는지를 말합니다.",
+      "반면 우도(Likelihood)는 어떠한 값이 이미 관측이 된 후에, 이 결과가 과연 어떤 확률 분포로부터 왔을지를 역으로 추정하는 것을 말합니다.",
+      "결론적으로 확률은 '논리'를 바탕으로 미래를 연역하고, 우도는 관측된 '실재'를 바탕으로 원인을 귀납합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_017",
+    "day": 1,
+    "concept": "부분공간 조건",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "부분공간 필수 자격... 지지직. 단순 부분집합을 넘어 공간으로 인정받기 위한 3가지 조건을 배열해라.",
+      "correct": "정답입니다. 영벡터가 있어야 하고, 더해도 그 안, 상수를 곱해도 그 안에 있어야 부분공간으로 인정됩니다.",
+      "wrong": "틀렸습니다. 영벡터(원점)가 포함되는 기준점의 존재가 가장 근본적인 첫 조건입니다."
+    },
+    "question": "어떤 벡터 집합이 단순한 부분집합(Subset)을 넘어, 선형 결합이 성립하는 '부분공간(Subspace)'이 되기 위해 반드시 만족해야 하는 세 가지 조건을 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "공간의 기준이 되는 zero vector 영벡터(원점)가 부분공간에 반드시 속해야 합니다.",
+      "부분공간 내의 벡터끼리 더해도 여전히 공간 내에 속하는 '벡터 덧셈에 대해 닫혀 있는' 상태여야 합니다.",
+      "부분공간 내의 벡터에 상수를 곱해도 공간 내에 속하는 '스칼라 곱에 대해 닫혀 있는' 상태여야 합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_018",
+    "day": 1,
+    "concept": "Adam Optimizer",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "최적화 기법 융합... 삐빅. 각 옵티마이저의 장점이 모여 최종 진화형이 탄생하는 과정을... 조립해라.",
+      "correct": "완벽합니다! 이전 방향을 기억하는 모멘텀과 학습률 무한 감소를 막은 RMSProp, 이 두 장점이 합쳐져 현재 가장 우수한 Adam이 탄생했습니다.",
+      "wrong": "논리 오류. 재료가 되는 모멘텀과 RMSProp의 특징을 먼저 서술해야 융합형인 Adam을 설명할 수 있습니다."
+    },
+    "question": "경사하강법 옵티마이저 중 현재 가장 보편적으로 쓰이는 Adam(아담)이 이전 기법들의 어떤 장점을 결합하여 탄생했는지 논리적 흐름에 맞게 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "모멘텀(Momentum) 기법은 가중치를 수정할 때 이전 수정 방향(운동량)을 참고하여 가속하는 장점이 있습니다.",
+      "RMSProp 기법은 파라미터별로 학습률을 조정할 때 G값이 무한히 커져 학습이 멈추는 것을 방지하는 장점이 있습니다.",
+      "Adam은 이 두 가지 기법의 장점(방향 가속 + 학습률 유지)을 융합하여 속도와 운동량을 동시에 안정적으로 조절합니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_019",
+    "day": 1,
+    "concept": "기울기 소멸과 ReLU",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "역전파 신호 소실 원인 분석... 삐-. 깊은 층에서 발생하는 에러와 이를 해결하는 활성화 함수를... 연결해라.",
+      "correct": "정확합니다! 은닉층이 깊어지면 역전파 시 Sigmoid 등의 미분값이 계속 곱해져 0에 수렴하는 소멸 문제가 생기는데, ReLU가 이를 극복했습니다.",
+      "wrong": "순서가 맞지 않습니다. 문제 상황(소멸)이 발생하고 오차 수렴 실패 현상이 일어난 뒤에 해결책(ReLU)이 제시되어야 합니다."
+    },
+    "question": "딥러닝에서 은닉층(hidden layer)이 깊어질 때 발생하는 치명적 문제와 그 해결책에 대한 설명을 올바르게 연결하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "역전파(Backpropagation) 과정에서 은닉층이 많은 신경망은 입력층으로 갈수록 전달되는 기울기(gradient) 값이 점차 작아집니다.",
+      "결국 기울기 값이 0에 가깝게 소멸하여 가중치가 업데이트되지 않고, 오차를 더 줄이지 못한 채 그 상태로 수렴하는 문제가 발생합니다.",
+      "이러한 기울기 소멸 문제는 미분값이 0이 되기 쉬운 sigmoid나 tanh 대신 ReLU(렐루) 활성화 함수를 사용하면 크게 완화할 수 있습니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_020",
+    "day": 1,
+    "concept": "배깅과 부스팅",
+    "type": "card_order",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "앙상블 기법 양대 산맥... 지지직. 여러 모델을 결합하는 두 가지 주요 방식을... 순서대로 정리해라.",
+      "correct": "정답입니다. 앙상블은 크게 병렬 방식과 순차 방식으로 나뉘며, 각각 독립적으로 합치는 배깅과 틀린 것을 고쳐나가는 부스팅으로 설명할 수 있습니다.",
+      "wrong": "오답입니다. 앙상블의 큰 분류를 먼저 소개한 뒤, 배깅과 부스팅의 특징을 순서대로 나열해야 합니다."
+    },
+    "question": "여러 모델을 결합하는 앙상블(Ensemble) 기법을 크게 두 가지 방식인 Bagging과 Boosting으로 나누어 설명하는 논리적 흐름을 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "앙상블 기법에는 각 모델을 독립적, 병렬적으로 학습하는 Bagging과, 이전 모델의 오차를 보완하며 순차적으로 학습하는 Boosting이 있습니다.",
+      "Bagging(배깅)은 원본 데이터에서 여러 개의 표본을 병렬적으로 만들어 각각의 모델을 학습시킨 후 다수결로 결과를 하나로 합칩니다.",
+      "반면 Boosting(부스팅)은 앞에서 학습한 분류기가 예측이 틀린 데이터에 더 큰 가중치를 부여하면서 순차적으로 다음 트리를 학습시켜 나갑니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_021",
+    "day": 1,
+    "concept": "L1과 L2 특성 비교",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "규제 가중치 형태 분석... 삐빅. 극단적인 0(L1)과 부드러운 분산(L2)의 결과를... 순서대로 조립해.",
+      "correct": "완벽합니다! L1은 불필요한 값을 0으로 쳐내 희소(sparse)해지고, L2는 0 근처로 작게 유지하며 모델 전체를 부드럽게(coarse) 만듭니다.",
+      "wrong": "틀렸습니다. 각 정규화의 작동 방식(0이 되는지 여부)을 먼저 설명한 후, 최종 선호하는 w의 형태를 결론지어야 합니다."
+    },
+    "question": "가중치 규제 방법인 L1 정규화와 L2 정규화가 각각 어떤 특징을 가지며, 결과적으로 어떤 형태의 가중치(w)를 선호하게 되는지 순서대로 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "L1 정규화는 모델 학습 시 중요도가 낮은 특정 피쳐의 가중치 값이 아예 0이 되어 사라지게 하는 특징(Feature selection)이 있습니다.",
+      "반면 L2 정규화는 중요도가 낮은 특정 웨이트의 값이 매우 낮아지더라도 절대 0이 되지는 않고 0에 가깝게만 수렴하는 특징이 있습니다.",
+      "결과적으로 0이 많은 L1은 희소한(sparse) w를 선호하고, 가중치를 골고루 작게 남기는 L2는 부드러운(coarse) w를 선호하게 됩니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_022",
+    "day": 1,
+    "concept": "랜덤 포레스트 등장 배경",
+    "type": "card_order",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "단일 트리 과적합 해결... 지지직. 깊어지는 나무의 단점을 숲(앙상블)이 어떻게 극복했는지... 나열해라.",
+      "correct": "정답입니다. 의사결정나무의 치명적 단점인 과적합을 막기 위해 앙상블 기법이 도입되었고, 그중 나무들을 모아 다수결을 내는 것이 랜덤 포레스트입니다.",
+      "wrong": "순서 오류. 단일 모델의 단점(과적합)을 먼저 제기해야 앙상블 도입의 당위성이 성립합니다."
+    },
+    "question": "단일 머신러닝 알고리즘인 의사결정나무(Decision Tree)의 한계점과 이를 보완하여 랜덤 포레스트(Random Forest)가 등장한 과정을 맞추세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "의사결정나무는 직관적이고 설명력이 좋지만, 조건이 추가되며 깊이가 깊어질수록 과적합(Overfitting)되어 정확도가 떨어지는 단점이 있습니다.",
+      "이러한 단일 모델의 치명적인 단점을 보완하고 예측의 안정성을 높이기 위해 앙상블(Ensemble) 기법을 사용하게 되었습니다.",
+      "특히 배깅(Bagging) 방식을 사용하여 여러 개의 의사결정나무 모델들을 만든 뒤, 각 결과를 합쳐서 하나의 숲을 이루는 것이 랜덤 포레스트입니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_023",
+    "day": 1,
+    "concept": "네스테로프 모멘텀 브레이크",
+    "type": "card_order",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "제동 거리 예측 알고리즘... 삐-. 단순 관성을 뛰어넘어 미래의 기울기를 재계산하는 과정을... 배열해.",
+      "correct": "정확합니다! 이전 관성으로 먼저 이동한 뒤, 이동한 그 '미래 위치'에서 다시 기울기를 계산해야 멈춰야 할 곳에서 정확히 브레이크를 잡을 수 있습니다.",
+      "wrong": "틀렸습니다. 이전 운동량을 고려해 일단 뻗어나가는 과정이 선행되어야, 이동한 지점에서의 재계산이 의미를 가집니다."
+    },
+    "question": "옵티마이저 중 네스테로프 모멘텀(Nesterov Momentum)이 기존 모멘텀의 오버슈팅(지나침) 문제를 제어하는 과정을 순서대로 나열하세요.[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [
+      "기존 모멘텀은 이전 운동량을 고려하여 같은 방향으로 가속하므로, 최소값을 지나쳐버리는 오버슈팅이 발생할 수 있습니다.",
+      "네스테로프 모멘텀은 이전 운동량에 의해 절반 정도 미래로 이동한 지점에서 손실 함수의 기울기 값을 새롭게 다시 계산합니다.",
+      "미래 지점의 기울기를 미리 반영함으로써, 관성으로 인한 빠른 속도는 유지하면서도 멈추어야 할 적절한 시점에 효과적으로 제동을 겁니다."
+    ],
+    "correct_order": [0, 1, 2],
+    "options": [],
+    "correct": null
+  },
+  {
+    "id": "d7_024",
+    "day": 1,
+    "concept": "Dropout 목적",
+    "type": "hypothesis",
+    "difficulty": "easy",
+    "nova_dialogue": {
+      "brief": "신경망 규제 기법 검색... 삐빅. 학습 중에 임의로 노드를 끊어버리는 기술을... 찾아내라.",
+      "correct": "정답입니다! 학습 과정 중 임의로 일부 노드들을 학습에서 제외시키는 Dropout은 모델이 과도하게 훈련 데이터에 맞춰지는 것을 막습니다.",
+      "wrong": "오답입니다. Batch Normalization은 노드를 끄는 것이 아니라 미니 배치 단위로 입력값의 스케일을 정규화하는 기술입니다."
+    },
+    "question": "딥러닝 모델이 학습 데이터에 과적합(Overfitting)되는 것을 피하기 위해, 학습 과정 중 임의로 신경망의 일부 노드들을 비활성화하여 학습에서 제외시키는 방법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "드롭아웃 (Dropout)",
+      "배치 정규화 (Batch Normalization)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_025",
+    "day": 1,
+    "concept": "분류 평가 지표",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "성능 지표 혼선... 지지직. 회귀와 분류가 뒤섞였다. 분류 문제에서 모델이 얼마나 잘 맞췄는지 재는 지표를... 골라라.",
+      "correct": "맞습니다! F1 Score나 Accuracy는 데이터가 어느 클래스에 속하는지 맞추는 '분류' 문제에서 Confusion Matrix를 기반으로 계산되는 지표입니다.",
+      "wrong": "틀렸습니다. RMSE(Root Mean Square Error)는 연속된 값을 예측하는 '회귀(Regression)' 모델의 오차를 잴 때 사용합니다."
+    },
+    "question": "머신러닝에서 혼동 행렬(Confusion Matrix)을 기반으로 도출되며, '분류(Classification)' 모델의 성능을 평가할 때 주로 사용되는 지표는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "F1 Score",
+      "RMSE"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_026",
+    "day": 1,
+    "concept": "L1의 Feature Selection",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "아웃라이어 제거 스크립트 가동... 삐-. 특정 피처의 값이 낮으면 가중치를 0으로 없애버리는 무자비한 규제를... 선택해.",
+      "correct": "정확합니다. 절댓값을 페널티로 부여하는 L1 정규화는 영향력이 적거나 노이즈인 피처의 가중치를 완전히 0으로 만들어 변수를 선택하는 효과가 있습니다.",
+      "wrong": "오답입니다. L2 정규화는 0에 가깝게 줄일 뿐 완전히 0으로 만들지는 않아 특성 선택(Feature selection) 효과는 없습니다."
+    },
+    "question": "특정 피쳐의 값이 매우 낮을 때(아웃라이어 등) 가중치를 완전히 '0'으로 만들어버려, 불필요한 변수를 제거하는 Feature selection(특성 선택) 효과를 내는 정규화 기법은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "L1 정규화",
+      "L2 정규화"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_027",
+    "day": 1,
+    "concept": "Adadelta의 특징",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "초매개변수(Hyperparameter) 의존성 제거... 삐빅. Adagrad의 단점을 고치면서, 사람이 직접 학습률을 정해줄 필요도 없앤 옵티마이저를... 찾아라.",
+      "correct": "정답입니다! 아다델타(Adadelta)는 G값이 너무 커지는 Adagrad의 한계를 돌파하기 위해 나왔으며, 초기 Learning rate(학습률) 하이퍼파라미터를 설정할 필요가 없습니다.",
+      "wrong": "틀렸습니다. Adam은 여전히 초기 학습률 하이퍼파라미터 설정이 필요한 알고리즘입니다."
+    },
+    "question": "파라미터 업데이트 횟수에 따라 G값이 커져 학습이 멈추는 Adagrad의 문제를 해결하기 위해 등장했으며, 특별히 Learning Rate(학습률)에 대한 하이퍼파라미터 설정이 필요 없는 옵티마이저는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "아다델타 (Adadelta)",
+      "아담 (Adam)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_028",
+    "day": 1,
+    "concept": "Cross Entropy와 MLE",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "로그 우도 함수 변환... 지지직. 최댓값을 찾는 문제를, 앞에 마이너스를 붙여서 최솟값을 찾는 손실 함수로 바꿨다... 이 함수의 이름은?",
+      "correct": "완벽합니다! 분류 문제에서 최대 우도 추정(MLE)을 위해 확률들의 곱에 로그를 취하고(Log Likelihood), 다시 마이너스를 붙여 오차를 최소화하는 문제로 바꾼 것이 Cross Entropy입니다.",
+      "wrong": "오답입니다. Softmax는 딥러닝 출력단에서 로그(Logit)를 확률로 변환하는 활성화 함수이며 오차 함수 자체는 아닙니다."
+    },
+    "question": "분류(Classification)에서 원-핫 인코딩 시 정답 확률에 대해 Maximum Likelihood Estimation(최우추정법)을 적용할 때, 이 함수의 최댓값을 구하는 문제를 -log를 취해 오차 최소화 문제로 변환하여 얻어지는 식은 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "크로스 엔트로피 (Cross Entropy)",
+      "소프트맥스 (Softmax)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_029",
+    "day": 1,
+    "concept": "편의 (Bias)",
+    "type": "hypothesis",
+    "difficulty": "hard",
+    "nova_dialogue": {
+      "brief": "통계적 오차 근원 탐색... 삐-. 우리가 예상한 기대값과, 실제 현실의 모수. 그 사이에 벌어진 근본적인 차이를 부르는 용어를... 골라라.",
+      "correct": "정답입니다. 추정량의 기댓값과 실제 모수와의 차이를 편의(Bias)라고 하며, 이 차이가 없는 추정량을 불편추정량(Unbiased estimation)이라고 합니다.",
+      "wrong": "틀렸습니다. 분산(Variance)은 데이터들이 평균으로부터 얼마나 흩어져 있는지를 나타내는 산포도 지표입니다."
+    },
+    "question": "통계 및 머신러닝에서 무작위로 추출한 표본을 바탕으로 계산한 '추정량의 기댓값'과, 우리가 실제 구하고자 하는 모집단의 '실제 모수'와의 본질적인 차이를 의미하는 용어는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "편의 (Bias)",
+      "분산 (Variance)"
+    ],
+    "correct": 0
+  },
+  {
+    "id": "d7_030",
+    "day": 1,
+    "concept": "중심극한정리 (CLT)",
+    "type": "hypothesis",
+    "difficulty": "medium",
+    "nova_dialogue": {
+      "brief": "통계 근사 법칙 작동... 삐빅. 원래 형태가 어떻든, 표본을 많이 뽑아서 평균을 내면 결국 이 종모양 분포를 따르게 된다... 이게 무슨 정리일까?",
+      "correct": "맞습니다! 모집단이 어떤 기괴한 분포를 띄더라도, 표본의 크기(n)가 충분히 크면 그 표본 평균들의 분포는 정규분포(가우시안 분포)에 근사한다는 것이 중심극한정리입니다.",
+      "wrong": "아닙니다. 대수의 법칙은 시행을 무한히 반복하면 사건 발생 비율이 정해진 이론적 확률(기댓값)에 수렴한다는 법칙입니다."
+    },
+    "question": "통계학에서 추출하는 표본의 크기(n)가 커질수록, 원래 모집단의 분포 형태에 상관없이 '표본 평균'들의 분포가 정규분포에 근사하게 된다는 강력한 정리는 무엇입니까?[cite: 1]",
+    "blanks": [],
+    "wrong_options": [],
+    "hint": [],
+    "items": [],
+    "correct_order": [],
+    "options": [
+      "중심 극한 정리 (Central Limit Theorem)",
+      "대수의 법칙 (Law of Large Numbers)"
+    ],
+    "correct": 0
+  }
+]
+
+```
